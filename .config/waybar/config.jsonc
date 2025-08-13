@@ -1,0 +1,84 @@
+{
+    "height": 30,
+    "width": 1740,
+    "spacing": 4,
+    "modules-left": [
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+        "clock",
+        "hyprland/window",
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "power-profiles-daemon",
+        "battery",
+    ],
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 5,
+        },
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        },
+        "tooltip-format": " {profile} ",
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 60,
+        "icon": true,
+        "icon-size": 16,
+        "rewrite": {
+            "com.mitchellh.ghostty": "ghostty",
+        },
+        "tooltip": false,
+    },
+    "clock": {
+        "tooltip-format": "{:%H:%M%n%A, %d %B, %Y}",
+        "interval": 15,
+        "format": "{:%a, %d %b - %I:%M %p}",
+    },
+    "battery": {
+        "states": {
+            "good": 60,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}",
+        "format-plugged": "{capacity}% {icon}",
+        "format-alt": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+    },
+    "pulseaudio": {
+        "tooltip": false,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-bluetooth-muted": "{icon}  MUTED",
+        "format-muted": "{icon}  MUTED",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{essid} ETH",
+        "format-disconnected": "DISCONNECTED",
+        "tooltip": false,
+    },
+}

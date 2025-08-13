@@ -1,0 +1,67 @@
+autoload -U colors && colors
+
+export TERM="kitty"
+
+plugins=(git)
+
+export LANG=en_US.UTF-8
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+alias ls="eza --oneline --color=always --icons=always --all --sort=name --group-directories-first"
+alias lstree="eza --all --tree"
+alias icat="kitten icat"
+alias logo="clear && fastfetch"
+alias vim="nvim"
+alias showcolor="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/e50a28ec54188d2413518788de6c6367ffcea4f7/print256colours.sh | zsh"
+
+alias cr="cargo run"
+alias cb="cargo build"
+alias cn="cargo new"
+
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND="fd -p --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -p --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --border --color=hl:#505050"
+export FZF_TMUX_OPTS=" -p90%,70% "
+
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+DISABLE_AUTO_TITLE="true"
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export XCURSOR_SIZE=30
+
+setopt PROMPT_SUBST
+
+# Function to get git branch and status
+git_prompt() {
+    # Check if we're in a git repository
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        # Get the current branch name
+        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+        
+        # Get git status
+        local git_status=""
+        if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+            git_status="*"  # Indicate there are changes
+        fi
+        
+        # Return the formatted git info
+        echo "${branch}${git_status}"
+    fi
+}
+
+GREY=$'%{\e[38;5;242m%}'
+PURPLE=$'%{\e[38;5;128m%}'
+BLUE=$'%{\e[38;5;32m%}'
+ORANGE=$'%{\e[38;5;166m%}'
+RESET_COLOR=$'%{\e[0m%}'
+
+PROMPT='${GREY}[${PURPLE}%~${GREY}]${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${ORANGE}λ ${RESET_COLOR}'

@@ -1,0 +1,66 @@
+# fonts
+font_family GoMono Nerd Font Mono
+font_size 16.0
+force_ltr nobrowser
+
+# cursor
+cursor #e0e0e0
+cursor_text_color #000000
+cursor_shape block
+shell_integration no-cursor
+cursor_blink_interval 0
+cursor_trail 1
+cursor_trail_decay 0.1 0.3
+cursor_trail_start_threshold 1
+
+# performance tuning
+sync_to_monitor yes
+repaint_delay 16
+
+# window
+background_opacity 1.0
+dynamic_background_opacity yes
+hide_window_decoration yes
+single_window_margin_width 2
+
+# BEGIN_KITTY_THEME
+# Carbonfox
+include current-theme.conf
+# END_KITTY_THEME
+
+# splits
+window_border_width 1
+window_margin_width 2
+window_padding_width 0
+active_border_color #606060
+inactive_border_color #202020
+enabled_layouts horizontal
+
+# tabs
+tab_bar_edge bottom
+tab_bar_margin_width 0.0
+tab_bar_style powerline
+tab_bar_min_tabs 1
+tab_title_template "{index}: {tab.active_wd}"
+active_tab_background #303030
+active_tab_foreground #e0e0e0
+inactive_tab_background #101010
+inactive_tab_foreground #808080
+
+# remote control
+allow_remote_control yes
+
+# keyboard shortcuts
+kitty_mod ctrl+shift
+
+# # splits
+map kitty_mod+enter launch --cwd=current
+map kitty_mod+w close_window
+map kitty_mod+l next_window
+map kitty_mod+h previous_window
+
+# # tabs
+map kitty_mod+n new_tab_with_cwd
+map kitty_mod+x close_tab
+map kitty_mod+k next_tab
+map kitty_mod+j previous_tab

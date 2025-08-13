@@ -1,0 +1,98 @@
+/* Rofi theme - Clean black/purple */
+/* Save as ~/.config/rofi/themes/clean-purple.rasi */
+
+* {
+    bg-color: #000000;
+    text-color: #ffffff;
+    accent: #e000ff;
+    urgent: #ff6b6b;
+    selected: #1a1a1a;
+    
+    font: "SF Pro Text 16";
+    background-color: transparent;
+    text-color: #e0e0e0;
+}
+
+window {
+    background-color: @bg-color;
+    border: 2px;
+    border-color: rgba(224, 0, 255, 0.5);
+    border-radius: 8px;
+    width: 600px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 20px;
+}
+
+inputbar {
+    children: [ entry ];
+    spacing: 10px;
+    padding: 0 10px;
+}
+
+prompt {
+    text-color: @accent;
+    font: "SF Pro Text Bold 16";
+}
+
+entry {
+    placeholder: "Search applications...";
+    placeholder-color: #666666;
+    cursor: text;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    spacing: 2px;
+    scrollbar: false;
+    cycle: true;
+}
+
+element {
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+element normal.normal {
+    background-color: transparent;
+}
+
+element normal.urgent {
+    text-color: @urgent;
+}
+
+element normal.active {
+    text-color: @accent;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @accent;
+}
+
+element selected.urgent {
+    background-color: @selected;
+    text-color: @urgent;
+}
+
+element selected.active {
+    background-color: @selected;
+    text-color: @accent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: @accent;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 24px;
+    padding: 0px 8px 0px 0px;
+}
