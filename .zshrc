@@ -7,6 +7,8 @@ plugins=(git)
 export LANG=en_US.UTF-8
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export PATH="$HOME/bin:$PATH"
+
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
