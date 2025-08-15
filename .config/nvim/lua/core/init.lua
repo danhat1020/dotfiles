@@ -1,0 +1,8 @@
+require("core.screenkey")
+require("core.oil")
+require("core.colors")
+require("core.status")
+require("core.telescope")
+require("core.treesitter")
+require("core.tabs")
+require("core.autocommands")
