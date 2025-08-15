@@ -1,75 +1,56 @@
 * {
     font-family: "Chicago FLF", "JetBrains Mono Nerd Font Propo", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 window#waybar {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(232, 232, 232, 1.0);
+    border: 3px solid #202020;
     color: #202020;
 }
 
 #workspaces {
-    background-color: rgba(232, 232, 232, 1.0);
-    border: 3px solid #202020;
-    margin-top: 5px;
+    background-color: rgba(232, 232, 232, 0.0);
 }
 
 #workspaces button {
-    color: rgba(32, 32, 32, 0.4);
+    color: rgba(32, 32, 32, 0.5);
     border: none;
-    margin: 0px;
-    padding: 2px 8px;
+    margin: 3px 0;
+    padding: 0px 8px;
     background-color: rgba(0, 0, 0, 0);
 }
 
 #workspaces button.active {
     color: rgba(32, 32, 32, 1.0);
-    background-color: rgba(190, 190, 190, 1.0);
+    background-color: rgba(180, 180, 180, 1.0);
     border-radius: 0;
 }
 
+#workspaces button:first-child {
+    margin-left: 3px;
+}
+
 .modules-center {
-    background-color: rgba(232, 232, 232, 1.0);
-    border: 3px solid #202020;
-    margin-top: 5px;
+    margin: 3px;
     color: rgba(32, 32, 32, 1.0);
 }
 
 .modules-center .module {
-    margin: 0 20px;
+    margin: 0 30px;
+}
+
+#clock {
+    margin-right: 10px;
 }
 
 window#waybar.empty #window {
     margin: 0 4px;
 }
 
-#battery,
-#network,
-#pulseaudio,
-#power-profiles-daemon {
-    padding: 0 10px;
-    margin: 0 0;
-    background-color: rgba(0, 0, 0, 0);
-}
-
 .modules-right {
-    background-color: rgba(232, 232, 232, 1.0);
-    border: 3px solid #202020;
     color: rgba(32, 32, 32, 1.0);
-    margin-top: 5px;
-}
-
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
-}
-
-#clock {
-    margin-right: 10px;
 }
 
 @keyframes blink {
@@ -77,6 +58,34 @@ window#waybar.empty #window {
         background-color: #ffffff;
         color: #ff0000;
     }
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+#pulseaudio.muted {
+    color: rgba(32, 32, 32, 0.4);
+}
+
+#network {
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+#network.disconnected {
+    color: rgba(220, 0, 0, 1);
+}
+
+#power-profiles-daemon {
+    padding: 0;
+    margin: 0;
+}
+
+#battery {
+    padding: 0 10px;
+    margin: 0 15px;
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
@@ -89,22 +98,8 @@ window#waybar.empty #window {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    padding: 0 5px;
-}
-
 label:focus {
-    background-color: #000000;
-}
-
-#network.disconnected {
-    color: rgba(220, 0, 0, 1);
-}
-
-#pulseaudio {
-    margin-left: 8px;
-}
-
-#pulseaudio.muted {
-    color: rgba(32, 32, 32, 0.5);
+    background-color: #e8e8e8;
+    color: #202020;
+    border: 2px solid #202020;
 }
