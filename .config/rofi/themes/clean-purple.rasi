@@ -2,22 +2,21 @@
 /* Save as ~/.config/rofi/themes/clean-purple.rasi */
 
 * {
-    bg-color: #000000;
-    text-color: #ffffff;
-    accent: #e000ff;
+    bg-color: #e8e8e8;
+    text-color: #202020;
+    accent: #e8e8e8;
     urgent: #ff6b6b;
-    selected: #1a1a1a;
+    selected: #60a0d0;
     
-    font: "SF Pro Text 16";
+    font: "Chicago FLF 12";
     background-color: transparent;
-    text-color: #e0e0e0;
+    text-color: #202020;
 }
 
 window {
     background-color: @bg-color;
-    border: 2px;
-    border-color: rgba(224, 0, 255, 0.5);
-    border-radius: 8px;
+    border: 4px;
+    border-color: rgba(32, 32, 32, 1.0);
     width: 600px;
     padding: 20px;
 }
@@ -35,12 +34,12 @@ inputbar {
 
 prompt {
     text-color: @accent;
-    font: "SF Pro Text Bold 16";
+    font: "ChicagoFLF";
 }
 
 entry {
     placeholder: "Search applications...";
-    placeholder-color: #666666;
+    placeholder-color: #808080;
     cursor: text;
 }
 
@@ -55,7 +54,7 @@ listview {
 
 element {
     padding: 10px 15px;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 element normal.normal {

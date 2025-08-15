@@ -21,6 +21,8 @@ alias cr="cargo run"
 alias cb="cargo build"
 alias cn="cargo new"
 
+alias commit="git commit -m"
+
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd -p --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
