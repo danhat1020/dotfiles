@@ -1,16 +1,16 @@
 font-family = GoMono Nerd Font
 # font-family = SF Mono
-font-size = 16
+font-size = 15
 
-background = #0b0b0b
-cursor-color = #e0e0e0
+background = #080808
+cursor-color = #e1e0e0
 cursor-text = #000000
 background-opacity = 1.0
 
 custom-shader = ./shaders/crt.glsl
 
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 6
+window-padding-y = 6
 
 theme = GitHub-Dark-Default
 
