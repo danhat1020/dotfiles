@@ -68,4 +68,5 @@ BLUE=$'%{\e[38;5;32m%}'
 ORANGE=$'%{\e[38;5;166m%}'
 RESET_COLOR=$'%{\e[0m%}'
 
-PROMPT='${GREY}[${PURPLE}%~${GREY}]${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${ORANGE}λ ${RESET_COLOR}'
+# PROMPT='${GREY}[${PURPLE}%~${GREY}]${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${ORANGE}λ ${RESET_COLOR}'
+PROMPT='${GREY}[${PURPLE}%~${GREY}]${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${ORANGE}$ ${RESET_COLOR}'
