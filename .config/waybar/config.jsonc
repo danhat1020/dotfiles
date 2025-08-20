@@ -43,7 +43,7 @@
     "clock": {
         "tooltip-format": "{:%H:%M%n%A, %d %B, %Y}",
         "interval": 15,
-        "format": "{:%a, %d %b - %I:%M %p}",
+        "format": "{:%a, %d %b - %H:%M}",
     },
     "battery": {
         "states": {

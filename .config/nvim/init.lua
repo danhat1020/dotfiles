@@ -23,6 +23,7 @@ vim.opt.incsearch = true
 vim.opt.updatetime = 50
 vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.opt.guicursor = ""
 
 -- [KEYBINDS]
 vim.g.mapleader = " "
