@@ -1,4 +1,6 @@
-require("vague").setup()
+require("vague").setup({
+    transparent = true,
+})
 
 vim.cmd.colorscheme("vague")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
