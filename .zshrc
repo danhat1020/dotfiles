@@ -13,7 +13,7 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 alias ls="eza --oneline --color=always --icons=always --all --sort=name --group-directories-first"
-alias lstree="eza --all --tree"
+alias lstree="eza --all --tree --git-ignore"
 alias icat="kitten icat"
 alias logo="clear && fastfetch"
 alias vim="nvim"
