@@ -1,125 +1,124 @@
 * {
-    font-family: "Chicago FLF", "JetBrains Mono Nerd Font Propo", sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+  font-family: "Chicago FLF", "JetBrains Mono Nerd Font Propo", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 window#waybar {
-    background-color: rgba(210, 210, 210, 1.0);
-    border: 2px solid #202020;
-    border-top: none;
-    box-shadow: inset -2px -1px 0px 0px rgba(255, 255, 255, 0.6);
-    color: #202020;
+  background-color: rgba(210, 210, 210, 1);
+  border: 2px solid #202020;
+  box-shadow: inset -2px -1px 0px 0px rgba(255, 255, 255, 0.6);
+  color: #202020;
 }
 
 #workspaces {
-    margin: 3px 0 6px 5px;
-    background-color: rgba(190, 190, 190, 1.0);
-    border: 1px solid rgba(32, 32, 32, 1.0);
-    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  margin: 5px 0px 6px 5px;
+  background-color: rgba(190, 190, 190, 1);
+  border: 1px solid rgba(32, 32, 32, 1);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button {
-    color: rgba(100, 100, 100, 1.0);
-    border: none;
-    margin: 3px 0;
-    padding: 0 8px;
-    background-color: rgba(0, 0, 0, 0);
+  color: rgba(100, 100, 100, 1);
+  border: none;
+  margin: 3px 0;
+  padding: 0 8px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #workspaces button.active {
-    color: rgba(32, 32, 32, 1.0);
-    border: 1px solid black;
-    margin: 3px 0;
-    padding: 0 7px;
-    background-color: rgba(220, 220, 220, 1.0);
-    border-radius: 0;
-    box-shadow: 2px 1px 0 0 rgba(0, 0, 0, 0.75);
+  color: rgba(32, 32, 32, 1);
+  border: 1px solid black;
+  margin: 3px 0;
+  padding: 0 7px;
+  background-color: rgba(220, 220, 220, 1);
+  border-radius: 0;
+  box-shadow: 2px 1px 0 0 rgba(0, 0, 0, 0.75);
 }
 
 #workspaces button:first-child {
-    margin-left: 3px;
+  margin-left: 3px;
 }
 
 #workspaces button:last-child {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 
 .modules-center {
-    color: rgba(32, 32, 32, 1.0);
-    margin: 3px 0 6px 3px;
-    background-color: rgba(190, 190, 190, 1.0);
-    border: 1px solid rgba(32, 32, 32, 1.0);
-    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  color: rgba(32, 32, 32, 1);
+  margin: 5px 0 6px 3px;
+  background-color: rgba(190, 190, 190, 1);
+  border: 1px solid rgba(32, 32, 32, 1);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
 }
 
 .modules-center .module {
-    margin: 0 30px;
+  margin: 0 30px;
 }
 
 #clock {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 window#waybar.empty #window {
-    margin: 0 8px;
+  margin: 0 8px;
 }
 
 .modules-right {
-    color: rgba(32, 32, 32, 1.0);
-    margin: 3px 7px 6px 0;
-    background-color: rgba(190, 190, 190, 1.0);
-    border: 1px solid rgba(32, 32, 32, 1.0);
-    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  color: rgba(32, 32, 32, 1);
+  margin: 5px 7px 6px 0;
+  background-color: rgba(190, 190, 190, 1);
+  border: 1px solid rgba(32, 32, 32, 1);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #ff0000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #ff0000;
+  }
 }
 
 #pulseaudio {
-    padding: 0 10px;
-    margin: 0 10px;
+  padding: 0 10px;
+  margin: 0 10px;
 }
 
 #pulseaudio.muted {
-    color: rgba(32, 32, 32, 0.4);
+  color: rgba(32, 32, 32, 0.4);
 }
 
 #network {
-    padding: 0 10px;
-    margin: 0 10px;
+  padding: 0 10px;
+  margin: 0 10px;
 }
 
 #network.disconnected {
-    color: rgba(220, 0, 0, 1);
+  color: rgba(220, 0, 0, 1);
 }
 
 #power-profiles-daemon {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #battery {
-    padding: 0 10px;
-    margin: 0 15px;
+  padding: 0 10px;
+  margin: 0 15px;
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: rgba(255, 80, 90, 1);
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: rgba(255, 80, 90, 1);
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-    background-color: #e8e8e8;
-    color: #202020;
-    border: 2px solid #202020;
+  background-color: #e8e8e8;
+  color: #202020;
+  border: 2px solid #202020;
 }
