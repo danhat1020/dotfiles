@@ -20,6 +20,7 @@ _G.custom_tabline = function()
     end
     return line .. "%#TabLineFill#"
 end
+
 vim.opt.tabline = "%!v:lua.custom_tabline()"
 vim.opt.showtabline = 2
 vim.cmd("highlight TabLineSel guibg=#282828 guifg=#c0c0c0 gui=bold")
