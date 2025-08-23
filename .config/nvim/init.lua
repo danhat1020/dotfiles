@@ -78,7 +78,7 @@ require("nvim-treesitter.configs").setup({
 require("vague").setup({ transparent = true })
 vim.cmd.colorscheme("vague")
 -- OIL.NVIM
-require("oil").setup({ show_hidden = true })
+require("oil").setup({ view_options = { show_hidden = true } })
 vim.keymap.set("n", "-", vim.cmd.Oil, opts)
 -- TELESCOPE
 local actions = require("telescope.actions")
