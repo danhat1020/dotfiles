@@ -46,11 +46,9 @@ vim.pack.add({
   { src = "https://github.com/vague2k/vague.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/mason-org/mason.nvim" },
 })
 -- LSP
-require("mason").setup()
-vim.lsp.enable({ "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls" })
+vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "prettierd" })
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 -- TREESITTER
 require("nvim-treesitter.configs").setup({
@@ -128,7 +126,7 @@ local update_statusline = function()
       .. "%#StatusLineNC#"
       .. "%=%{&fileencoding} %{&fileformat} %y" .. get_git_branch()
       .. " %#StatusLine#"
-      .. " %l:%c %P"
+      .. " %l:%c "
 end
 vim.api.nvim_create_autocmd({ 'ModeChanged', 'BufEnter' }, {
   callback = update_statusline
@@ -188,12 +186,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end,
 })
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
+vim.api.nvim_create_augroup('AutoFormatting', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.lua',
+  group = 'AutoFormatting',
+  callback = function()
+    vim.lsp.buf.format({ async = true })
+    vim.cmd.write()
   end,
 })
-vim.cmd("set completeopt+=noselect")
