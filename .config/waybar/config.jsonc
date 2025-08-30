@@ -1,9 +1,9 @@
 {
   "position": "top",
-  "margin-top": 8,
+  "margin-top": 0,
 
-  "height": 30,
-  "width": 1880,
+  "height": 32,
+  "width": 1920,
   "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",

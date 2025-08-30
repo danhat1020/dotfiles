@@ -12,7 +12,7 @@ window#waybar {
 }
 
 #workspaces {
-  margin: 5px 0px 6px 5px;
+  margin: 6px 0px 7px 6px;
   background-color: rgba(190, 190, 190, 1);
   border: 1px solid rgba(32, 32, 32, 1);
   box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
@@ -21,7 +21,7 @@ window#waybar {
 #workspaces button {
   color: rgba(100, 100, 100, 1);
   border: none;
-  margin: 3px 0;
+  margin: 5px 0;
   padding: 0 8px;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -46,7 +46,7 @@ window#waybar {
 
 .modules-center {
   color: rgba(32, 32, 32, 1);
-  margin: 5px 0 6px 3px;
+  margin: 6px 0 7px 4px;
   background-color: rgba(190, 190, 190, 1);
   border: 1px solid rgba(32, 32, 32, 1);
   box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
@@ -66,7 +66,7 @@ window#waybar.empty #window {
 
 .modules-right {
   color: rgba(32, 32, 32, 1);
-  margin: 5px 7px 6px 0;
+  margin: 6px 8px 7px 0;
   background-color: rgba(190, 190, 190, 1);
   border: 1px solid rgba(32, 32, 32, 1);
   box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.5);
