@@ -63,10 +63,10 @@ git_prompt() {
 }
 
 GREY=$'%{\e[38;5;242m%}'
-PURPLE=$'%{\e[38;5;97m%}'
-BLUE=$'%{\e[38;5;62m%}'
-SYMBOL=$'%{\e[38;5;247m%}'
+PURPLE=$'%{\e[38;5;134m%}'
+BLUE=$'%{\e[38;5;69m%}'
+SYMBOL=$'%{\e[38;5;248m%}'
 RESET_COLOR=$'%{\e[0m%}'
 
 # PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}| ${BLUE}$(git_prompt)${RESET_COLOR}"; fi) ${SYMBOL}λ ${RESET_COLOR}'
-PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}| ${BLUE}$(git_prompt)${RESET_COLOR}"; fi) ${SYMBOL}$ ${RESET_COLOR}'
+PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}[${BLUE}$(git_prompt)${GREY}]${RESET_COLOR}"; fi) ${SYMBOL}$ ${RESET_COLOR}'
