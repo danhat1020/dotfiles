@@ -1,19 +1,21 @@
 # fonts
-# font_family VCR OSD Mono
-font_family Chicago FLF
-font_size 16.0
+# font_family      family="GoMono Nerd Font Mono"
+font_family      family="SF Mono"
+# font_family      family="FiraCode Nerd Font"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size 15.0
 force_ltr nobrowser
+disable_ligatures always
 
 # cursor
 cursor #d0d0d0
 cursor_text_color #000000
-cursor_shape beam
+cursor_shape block
 cursor_shape_unfocused hollow
 shell_integration no-cursor
 cursor_blink_interval 0
-# cursor_trail 1
-# cursor_trail_decay 0.1 0.3
-# cursor_trail_start_threshold 1
 
 # performance tuning
 sync_to_monitor yes
@@ -23,7 +25,7 @@ repaint_delay 16
 background_opacity 1.0
 dynamic_background_opacity yes
 hide_window_decoration yes
-window_margin_width 4
+window_margin_width 2
 
 # BEGIN_KITTY_THEME
 # GitHub Dark
@@ -38,14 +40,6 @@ tab_bar_align center
 tab_bar_margin_height 5.0 0.0
 tab_title_template "{index}:{title.split('/')[-1].split(':')[-1]}"
 active_tab_title_template "{index}|{title.split('/')[-1].split(':')[-1]}"
-tab_bar_background #080808
-
-active_tab_foreground #e8e8e8
-active_tab_background #080808
-active_tab_font_style bold
-inactive_tab_foreground #555
-inactive_tab_background #080808
-inactive_tab_font_style none
 
 # keybinds
 map ctrl+shift+c new_tab_with_cwd
