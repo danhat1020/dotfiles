@@ -27,5 +27,4 @@ return {
     'typescriptreact',
     'vue',
   },
-  root_markers = { '.git' },
 }

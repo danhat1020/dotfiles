@@ -20,11 +20,12 @@ vim.opt.winborder = "rounded"
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.path:append("**")
-vim.opt.showmode = false
+vim.opt.showmode = true
 -- KEYMAPS
 local opts = { silent = true, noremap = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.keymap.set("i", "<Esc>", "<Esc>l", opts)
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", "\"+y", opts)
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", "\"+p", opts)
 vim.keymap.set("n", "n", "nzzzv", opts)
@@ -46,10 +47,22 @@ vim.pack.add({
   { src = "https://github.com/vague2k/vague.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/mattn/emmet-vim" },
 })
 -- LSP
-vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "prettierd" })
+vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "emmet_language_server", "prettierd" })
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
+vim.opt.runtimepath:prepend('~/.local/share/nvim/site/pack/packer/start/emmet-vim')
+vim.g.user_emmet_mode = 'a'
+vim.g.user_emmet_leader_key = '<C-e>'
+
+-- Enable for HTML and CSS files
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
+  pattern = "*.html",
+  callback = function()
+    vim.cmd("packadd emmet-vim")
+  end
+})
 -- TREESITTER
 require("nvim-treesitter.configs").setup({
   sync_install = false,
