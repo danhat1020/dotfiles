@@ -2,6 +2,9 @@
   "layer": "top",
   "position": "left",
 
+  "margin-left": 8,
+  "height": 1064,
+
   "modules-left": ["clock", "custom/separator", "power-profiles-daemon"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["pulseaudio", "network", "battery"],
