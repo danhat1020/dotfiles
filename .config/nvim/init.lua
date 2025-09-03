@@ -21,6 +21,7 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.path:append("**")
 vim.opt.showmode = true
+vim.opt.guicursor = ""
 -- KEYMAPS
 local opts = { silent = true, noremap = true }
 vim.g.mapleader = " "
