@@ -21,12 +21,10 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.path:append("**")
 vim.opt.showmode = true
-vim.opt.guicursor = ""
 -- KEYMAPS
 local opts = { silent = true, noremap = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("i", "<Esc>", "<Esc>l", opts)
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", "\"+y", opts)
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", "\"+p", opts)
 vim.keymap.set("n", "n", "nzzzv", opts)
