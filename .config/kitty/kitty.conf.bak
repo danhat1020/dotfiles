@@ -1,10 +1,8 @@
-# fonts
-# font_family      family="GoMono Nerd Font Mono"
-font_family      family="SF Mono"
-# font_family      family="FiraCode Nerd Font"
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
+# font_family      family='CommitMono Nerd Font'
+# bold_font        auto
+# italic_font      family='CommitMono Nerd Font' style=Regular
+# bold_italic_font family='CommitMono Nerd Font' style=Bold
+
 font_size 15.0
 force_ltr nobrowser
 disable_ligatures always
@@ -17,36 +15,32 @@ cursor_shape_unfocused hollow
 shell_integration no-cursor
 cursor_blink_interval 0
 
+# cursor trail
+cursor_trail 0
+cursor_trail_decay 0.05 0.2
+cursor_trail_start_threshold 2
+
 # performance tuning
 sync_to_monitor yes
 repaint_delay 16
 
 # window
-background_opacity 1.0
-dynamic_background_opacity yes
+background_opacity 0.0
+dynamic_background_opacity no
 hide_window_decoration yes
 window_margin_width 2
 
-# BEGIN_KITTY_THEME
 # GitHub Dark
 include current-theme.conf
-# END_KITTY_THEME
-
-# tabs
-tab_bar_edge bottom
-tab_bar_min_tabs 2
-tab_bar_style fade
-tab_bar_align center
-tab_bar_margin_height 5.0 0.0
-tab_title_template "{index}:{title.split('/')[-1].split(':')[-1]}"
-active_tab_title_template "{index}|{title.split('/')[-1].split(':')[-1]}"
 
 # keybinds
-map ctrl+shift+c new_tab_with_cwd
-map ctrl+shift+x close_tab
-map ctrl+shift+n next_tab
-map ctrl+shift+p previous_tab
-map ctrl+shift+, set_tab_title
-
 map ctrl+y copy_to_clipboard
 map ctrl+p paste_from_clipboard
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="BlexMono Nerd Font Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
