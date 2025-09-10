@@ -43,10 +43,13 @@ vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- dependencies
   { src = "https://github.com/nvim-lua/plenary.nvim" },       -- dependencies
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/vague2k/vague.nvim" },
+  -- color schemes
+  { src = "https://github.com/ficd0/ashen.nvim" },
+  -- //
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/mattn/emmet-vim" },
+  { src = "https://github.com/adriankarlen/plugin-view.nvim" },
 })
 -- LSP
 vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "emmet_language_server", "prettierd" })
@@ -54,7 +57,6 @@ vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 vim.opt.runtimepath:prepend('~/.local/share/nvim/site/pack/packer/start/emmet-vim')
 vim.g.user_emmet_mode = 'a'
 vim.g.user_emmet_leader_key = '<C-e>'
-
 -- Enable for HTML and CSS files
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
   pattern = "*.html",
@@ -62,6 +64,9 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
     vim.cmd("packadd emmet-vim")
   end
 })
+-- PLUGIN VIEW
+require("plugin-view").setup({})
+vim.keymap.set("n", "<leader>pv", function() require("plugin-view").open() end)
 -- TREESITTER
 require("nvim-treesitter.configs").setup({
   sync_install = false,
@@ -80,13 +85,13 @@ require("nvim-treesitter.configs").setup({
       init_selection = "<C-space>",
       node_incremental = "<C-space>",
       scope_incremental = false,
-      node_decremental = "<BS>",
+      node_decremental = "<BS>"
     },
   },
 })
 -- COLORSCHEME
-require("vague").setup({ transparent = true })
-vim.cmd.colorscheme("vague")
+require("ashen").setup({ transparent = true })
+vim.cmd.colorscheme("ashen")
 -- OIL.NVIM
 require("oil").setup({ view_options = { show_hidden = true } })
 vim.keymap.set("n", "-", vim.cmd.Oil, opts)
@@ -128,6 +133,7 @@ local mode_map = {
   ['c'] = { label = 'COMMAND', color = '#4ec9b0' },
   ['t'] = { label = 'TERMINAL', color = '#4ec9b0' },
 }
+
 local update_statusline = function()
   local mode = vim.api.nvim_get_mode().mode
   local current_mode = mode_map[mode] or { label = mode, color = '#d4d4d4' }
@@ -158,6 +164,7 @@ vim.cmd([[
     autocmd ModeChanged *:[t]* hi! StatusLineMode guifg=#26D44C
   augroup END
 ]])
+
 -- TABLINE
 _G.custom_tabline = function()
   local line = ""
@@ -181,11 +188,17 @@ _G.custom_tabline = function()
   end
   return line .. "%#TabLineFill#"
 end
-vim.opt.tabline = "%!v:lua.custom_tabline()"
-vim.opt.showtabline = 2
-vim.cmd("highlight TabLineSel guibg=#282828 guifg=#c0c0c0 gui=bold")
-vim.cmd("highlight TabLine guibg=#141414 guifg=#808080")
-vim.cmd("highlight TabLineFill guibg=none")
+
+local function update_tabline()
+  vim.opt.tabline = "%!v:lua.custom_tabline()"
+  vim.opt.showtabline = 2
+  vim.cmd("highlight TabLineSel guibg=#282828 guifg=#c0c0c0 gui=bold")
+  vim.cmd("highlight TabLine guibg=#141414 guifg=#808080")
+  vim.cmd("highlight TabLineFill guibg=none")
+end
+
+update_tabline()
+
 -- AUTOCOMMANDS
 local highlight_yank_group = vim.api.nvim_create_augroup("HighlightYank", {})
 vim.api.nvim_create_autocmd("TextYankPost", {
