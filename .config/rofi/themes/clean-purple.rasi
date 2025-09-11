@@ -2,95 +2,97 @@
 /* Save as ~/.config/rofi/themes/clean-purple.rasi */
 
 * {
-    bg-color: #dcdcdc;
-    text-color: #202020;
-    accent: #e8e8e8;
-    urgent: #ff6b6b;
-    selected: #4070d0;
-    
-    font: "Chicago FLF 14";
-    background-color: transparent;
-    text-color: #202020;
+  bg-color: #141414;
+  text-color: #e0e0e0;
+  accent: #e8e8e8;
+  urgent: #ff6b6b;
+  selected: #4070d0;
+
+  font: "SF Text 16";
+  background-color: transparent;
+  text-color: #e0e0e0;
 }
 
 window {
-    background-color: @bg-color;
-    border: 2px;
-    border-color: rgba(32, 32, 32, 1.0);
-    width: 600px;
-    padding: 10px;
+  background-color: @bg-color;
+  border: 1px;
+  border-color: rgba(200, 200, 200, 0.6);
+  border-radius: 10px;
+  width: 600px;
+  padding: 10px;
 }
 
 mainbox {
-    children: [ inputbar, listview ];
-    spacing: 10px;
+  children: [ inputbar, listview ];
+  spacing: 10px;
 }
 
 inputbar {
-    children: [ entry ];
-    spacing: 10px;
-    padding: 0 10px;
+  children: [ entry ];
+  spacing: 10px;
+  padding: 0 10px;
 }
 
 prompt {
-    text-color: @accent;
+  text-color: @accent;
 }
 
 entry {
-    placeholder: "Search applications...";
-    placeholder-color: #a0a0a0;
-    cursor: text;
+  placeholder: "Search applications...";
+  placeholder-color: #606060;
+  cursor: text;
 }
 
 listview {
-    lines: 8;
-    columns: 1;
-    fixed-height: false;
-    spacing: 0px;
-    scrollbar: false;
-    cycle: true;
+  lines: 8;
+  columns: 1;
+  fixed-height: false;
+  spacing: 0px;
+  scrollbar: false;
+  cycle: true;
 }
 
 element {
-    padding: 10px 15px;
-    border-radius: 0;
+  padding: 10px 15px;
+  border-radius: 0;
 }
 
 element normal.normal {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 element normal.urgent {
-    text-color: @urgent;
+  text-color: @urgent;
 }
 
 element normal.active {
-    text-color: @accent;
+  text-color: @accent;
 }
 
 element selected.normal {
-    background-color: @selected;
-    text-color: @accent;
+  background-color: @selected;
+  text-color: @accent;
+  border-radius: 6px;
 }
 
 element selected.urgent {
-    background-color: @selected;
-    text-color: @urgent;
+  background-color: @selected;
+  text-color: @urgent;
 }
 
 element selected.active {
-    background-color: @selected;
-    text-color: @accent;
+  background-color: @selected;
+  text-color: @accent;
 }
 
 element-text {
-    background-color: transparent;
-    text-color: inherit;
-    highlight: @accent;
+  background-color: transparent;
+  text-color: inherit;
+  highlight: @accent;
 }
 
 element-icon {
-    background-color: transparent;
-    size: 24px;
-    padding: 0px 8px 0px 0px;
+  background-color: transparent;
+  size: 24px;
+  padding: 0px 8px 0px 0px;
 }

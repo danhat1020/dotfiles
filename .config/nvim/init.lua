@@ -25,13 +25,13 @@ vim.opt.showmode = true
 local opts = { silent = true, noremap = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set({ "n", "v", "x" }, "<leader>y", "\"+y", opts)
-vim.keymap.set({ "n", "v", "x" }, "<leader>p", "\"+p", opts)
-vim.keymap.set("n", "n", "nzzzv", opts)
-vim.keymap.set("n", "N", "Nzzzv", opts)
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
-vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
-vim.keymap.set("i", "<C-BS>", "<C-w>", opts)
+vim.keymap.set({ "n", "v", "x" }, "<leader>y", "\"+y", opts) -- copy to clipboard
+vim.keymap.set({ "n", "v", "x" }, "<leader>p", "\"+p", opts) -- paste from clipboard
+vim.keymap.set("n", "n", "nzzzv", opts)                      -- center when searching
+vim.keymap.set("n", "N", "Nzzzv", opts)                      -- center when searching backward
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)                -- center when jumping down
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)                -- center when jumping up
+vim.keymap.set("i", "<C-BS>", "<C-w>", opts)                 -- ctrl+backspace deletes whole word
 vim.keymap.set("n", "<leader>tc", ":tabnew<CR>", { desc = "Open new tab", silent = true, noremap = true })
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab", silent = true, noremap = true })
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Go to next tab", silent = true, noremap = true })
@@ -43,9 +43,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- dependencies
   { src = "https://github.com/nvim-lua/plenary.nvim" },       -- dependencies
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  -- color schemes
   { src = "https://github.com/ficd0/ashen.nvim" },
-  -- //
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/mattn/emmet-vim" },
@@ -133,7 +131,6 @@ local mode_map = {
   ['c'] = { label = 'COMMAND', color = '#4ec9b0' },
   ['t'] = { label = 'TERMINAL', color = '#4ec9b0' },
 }
-
 local update_statusline = function()
   local mode = vim.api.nvim_get_mode().mode
   local current_mode = mode_map[mode] or { label = mode, color = '#d4d4d4' }
@@ -164,7 +161,6 @@ vim.cmd([[
     autocmd ModeChanged *:[t]* hi! StatusLineMode guifg=#26D44C
   augroup END
 ]])
-
 -- TABLINE
 _G.custom_tabline = function()
   local line = ""
@@ -196,9 +192,7 @@ local function update_tabline()
   vim.cmd("highlight TabLine guibg=#141414 guifg=#808080")
   vim.cmd("highlight TabLineFill guibg=none")
 end
-
 update_tabline()
-
 -- AUTOCOMMANDS
 local highlight_yank_group = vim.api.nvim_create_augroup("HighlightYank", {})
 vim.api.nvim_create_autocmd("TextYankPost", {

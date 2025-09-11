@@ -33,7 +33,7 @@
   "hyprland/workspaces": {
     "format": "",
     "persistent-workspaces": {
-      "*": 10,
+      "*": 6,
     },
   },
 
