@@ -46,20 +46,20 @@ setopt PROMPT_SUBST
 
 # Function to get git branch and status
 git_prompt() {
-    # Check if we're in a git repository
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        # Get the current branch name
-        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-        
-        # Get git status
-        local git_status=""
-        if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-            git_status="*"  # Indicate there are changes
-        fi
-        
-        # Return the formatted git info
-        echo "${branch}${git_status}"
+  # Check if we're in a git repository
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    # Get the current branch name
+    local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+
+    # Get git status
+    local git_status=""
+    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+      git_status="*"  # Indicate there are changes
     fi
+
+    # Return the formatted git info
+    echo "${branch}${git_status}"
+  fi
 }
 
 GREY=$'%{\e[38;5;242m%}'
