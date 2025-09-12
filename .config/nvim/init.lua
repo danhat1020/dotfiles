@@ -48,6 +48,29 @@ vim.pack.add({
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/mattn/emmet-vim" },
   { src = "https://github.com/adriankarlen/plugin-view.nvim" },
+  { src = "https://github.com/MeanderingProgrammer/dashboard.nvim" },
+})
+-- DASHBOARD
+require("dashboard").setup({
+  header = {
+    [[                                                                       ]],
+    [[  ██████   █████                   █████   █████  ███                  ]],
+    [[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
+    [[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
+    [[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
+    [[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
+    [[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
+    [[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
+    [[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
+    [[                                                                       ]],
+  },
+  date_format = '%d-%m-%Y  |  %H:%M',
+  directories = {
+    "~/dotfiles",
+    "~/dotfiles/.config/nvim",
+    "~/Documents/canv-projects",
+    "~/Documents/js-projects",
+  },
 })
 -- LSP
 vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "emmet_language_server", "prettierd" })
