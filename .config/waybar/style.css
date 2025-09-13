@@ -14,9 +14,7 @@
 
 window#waybar {
   background-color: rgba(11, 10, 9, 1);
-  border-radius: 8px;
-  border: 1px solid rgba(200, 200, 200, 0.6);
-  box-shadow: inset 0 0 12 0 rgba(0, 0, 0, 0.4);
+  border-right: 2px solid rgba(200, 200, 200, 0.25);
   color: rgba(220, 220, 220, 1.0);
 }
 
@@ -32,23 +30,24 @@ tooltip label {
 }
 
 #clock {
-  margin: 10px 3px 0 3px;
+  margin: 10px 1px 1px 0;
   color: rgba(220, 220, 220, 0.75);
   font-family: "SF Pro Mono";
   font-weight: 700;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 #custom-separator {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  font-size: 15px;
   font-weight: 500;
 }
 
 #power-profiles-daemon {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 900;
-  margin-top: 0;
+  margin: 0;
 }
 
 #power-profiles-daemon.performance {
@@ -65,7 +64,7 @@ tooltip label {
 
 #workspaces {
   min-width: 0;
-  margin: 20px;
+  margin: 0px 13px 0px 12px;
   transition: all 0.2s ease-out;
 }
 
@@ -76,7 +75,7 @@ tooltip label {
   min-width: 0;
   margin: 5px 0;
   border-radius: 100px;
-  box-shadow: inset 0 0 3 1 rgba(0, 0, 0, 0.6), 0 0 5 3 rgba(234, 149, 149, 0.025);
+  box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.6), 0px 0px 5px 3px rgba(234, 149, 149, 0.025);
 }
 
 #workspaces button.active {
@@ -88,8 +87,8 @@ tooltip label {
 }
 
 #pulseaudio {
-  font-size: 30px;
-  margin: 8px 8px 8px 5px;
+  font-size: 26px;
+  margin: 8px 6px 6px 0px;
   color: rgba(180, 120, 220, 1.0);
 }
 
@@ -98,8 +97,8 @@ tooltip label {
 }
 
 #network {
-  font-size: 24px;
-  margin: 8px 8px 8px 2px;
+  font-size: 21px;
+  margin: 8px 8px 12px 0px;
   color: rgba(220, 160, 120, 1.0);
 }
 
@@ -108,7 +107,8 @@ tooltip label {
 }
 
 #battery {
-  font-size: 27px;
-  margin: 8px 8px 14px 8px;
+  font-size: 24px;
+  margin-bottom: 8px;
+  margin-right: 1px;
   color: rgba(120, 220, 160, 1.0);
 }
