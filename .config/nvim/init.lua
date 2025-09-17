@@ -38,6 +38,7 @@ vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Go to next tab", silent
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Go to previous tab", silent = true, noremap = true })
 vim.keymap.set("n", "<leader>ti", ":tabnew %<CR>",
   { desc = "Open current buffer in new tab", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>rl", ":source $MYVIMRC<CR>", opts) -- reload nvim config
 -- PLUGINS
 vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- dependencies
