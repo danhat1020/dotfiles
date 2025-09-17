@@ -22,23 +22,30 @@ vim.opt.undofile = true
 vim.opt.path:append("**")
 vim.opt.showmode = true
 -- KEYMAPS
-local opts = { silent = true, noremap = true }
+function Map(mode, lhs, rhs, opts)
+  local options = { silent = true, noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.keymap.set({ "n", "v", "x" }, "<leader>y", "\"+y", opts) -- copy to clipboard
-vim.keymap.set({ "n", "v", "x" }, "<leader>p", "\"+p", opts) -- paste from clipboard
-vim.keymap.set("n", "n", "nzzzv", opts)                      -- center when searching
-vim.keymap.set("n", "N", "Nzzzv", opts)                      -- center when searching backward
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)                -- center when jumping down
-vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)                -- center when jumping up
-vim.keymap.set("i", "<C-BS>", "<C-w>", opts)                 -- ctrl+backspace deletes whole word
-vim.keymap.set("n", "<leader>tc", ":tabnew<CR>", { desc = "Open new tab", silent = true, noremap = true })
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab", silent = true, noremap = true })
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Go to next tab", silent = true, noremap = true })
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Go to previous tab", silent = true, noremap = true })
-vim.keymap.set("n", "<leader>ti", ":tabnew %<CR>",
-  { desc = "Open current buffer in new tab", silent = true, noremap = true })
-vim.keymap.set("n", "<leader>rl", ":source $MYVIMRC<CR>", opts) -- reload nvim config
+Map({ "n", "v", "x" }, "<leader>y", "\"+y")          -- copy to clipboard
+Map({ "n", "v", "x" }, "<leader>p", "\"+p")          -- paste from clipboard
+Map("n", "n", "nzzzv")                               -- center when searching
+Map("n", "N", "Nzzzv")                               -- center when searching backward
+Map("n", "<C-d>", "<C-d>zz")                         -- center when jumping down
+Map("n", "<C-u>", "<C-u>zz")                         -- center when jumping up
+Map("i", "<C-BS>", "<C-w>")                          -- ctrl+backspace deletes whole word
+Map("n", "<leader>tc", ":tabnew<CR>")                -- open new tab
+Map("n", "<leader>tx", ":tabclose<CR>")              -- close current tab
+Map("n", "<leader>tn", ":tabn<CR>")                  -- go to next tab
+Map("n", "<leader>tp", ":tabp<CR>")                  -- go to previous tab
+Map("n", "<leader>ti", ":tabnew %<CR>")              -- open current buffer in new tab
+Map("n", "<leader>rl", ":source $MYVIMRC<CR>", opts) -- reload nvim config
+Map("v", ">", ">gv")                                 -- indent while selected
+Map("v", "<", "<gv")                                 -- unindent while selected
 -- PLUGINS
 vim.pack.add({
   { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- dependencies
