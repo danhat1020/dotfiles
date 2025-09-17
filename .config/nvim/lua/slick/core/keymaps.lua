@@ -35,3 +35,12 @@ Map("n", "<leader>la", ":Lazy<CR>")                         -- open lazy dashboa
 Map("n", "<leader>fe", ":Oil<CR>")                          -- open oil file explorer
 
 Map("n", "<leader>lf", function() vim.lsp.buf.format() end) -- format file
+
+-- Add this mapping to check active LSP clients
+vim.keymap.set('n', '<leader>l', function()
+  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  print("Active LSP clients: " .. #clients)
+  for _, client in ipairs(clients) do
+    print(" - " .. client.name)
+  end
+end, { desc = "Check active LSP clients" })

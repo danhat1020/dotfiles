@@ -2,8 +2,8 @@
   "layer": "top",
   "position": "left",
 
-  "margin-left": 0,
-  "height": 1080,
+  "margin-left": 8,
+  "height": 1064,
 
   "modules-left": ["clock", "custom/separator", "power-profiles-daemon"],
   "modules-center": ["hyprland/workspaces"],
@@ -33,7 +33,7 @@
   "hyprland/workspaces": {
     "format": "",
     "persistent-workspaces": {
-      "*": 6,
+      "*": 10,
     },
   },
 
