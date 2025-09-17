@@ -49,6 +49,7 @@ vim.pack.add({
   { src = "https://github.com/mattn/emmet-vim" },
   { src = "https://github.com/adriankarlen/plugin-view.nvim" },
   { src = "https://github.com/MeanderingProgrammer/dashboard.nvim" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
 })
 -- DASHBOARD
 require("dashboard").setup({
@@ -70,15 +71,23 @@ require("dashboard").setup({
     "~/dotfiles/.config/nvim",
     "~/Documents/canv-projects",
     "~/Documents/js-projects",
+    "~/Documents/notes",
   },
 })
 -- LSP
-vim.lsp.enable({ "html", "lua_ls", "ts_ls", "rust_analyzer", "cssls", "emmet_ls", "emmet_language_server", "prettierd" })
+vim.lsp.enable("html")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("cssls")
+vim.lsp.enable("emmet_ls")
+vim.lsp.enable("emmet_language_server")
+vim.lsp.enable("prettierd")
+vim.lsp.enable("omnisharp")
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 vim.opt.runtimepath:prepend('~/.local/share/nvim/site/pack/packer/start/emmet-vim')
 vim.g.user_emmet_mode = 'a'
 vim.g.user_emmet_leader_key = '<C-e>'
--- Enable for HTML and CSS files
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
   pattern = "*.html",
   callback = function()
