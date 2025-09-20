@@ -21,8 +21,11 @@ opt.winborder = "rounded"
 opt.swapfile = false
 opt.undofile = true
 opt.path:append("**")
-opt.showmode = true
+opt.showmode = false
 opt.backspace = "indent,eol,start"
+vim.g.editorconfig = true
+opt.updatetime = 50
+opt.guicursor = ""
 
 -- TABLINE
 _G.custom_tabline = function()
@@ -55,6 +58,7 @@ function Update_tabline()
   vim.cmd("highlight TabLine guibg=#141414 guifg=#808080")
   vim.cmd("highlight TabLineFill guibg=none")
 end
+
 Update_tabline()
 
 -- AUTOCOMMANDS

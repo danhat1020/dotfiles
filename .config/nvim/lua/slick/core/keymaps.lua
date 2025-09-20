@@ -7,6 +7,7 @@ function Map(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 Map({ "n", "v", "x" }, "<leader>y", "\"+y")                 -- copy to clipboard
 Map({ "n", "v", "x" }, "<leader>p", "\"+p")                 -- paste from clipboard
@@ -19,28 +20,34 @@ Map("n", "G", "Gzz")                                        -- center when going
 
 Map("i", "<C-BS>", "<C-w>")                                 -- ctrl+backspace deletes whole word
 
-Map("n", "<leader>tc", ":tabnew<CR>")                       -- open new tab
-Map("n", "<leader>tx", ":tabclose<CR>")                     -- close current tab
-Map("n", "<leader>tn", ":tabn<CR>")                         -- go to next tab
-Map("n", "<leader>tp", ":tabp<CR>")                         -- go to previous tab
-Map("n", "<leader>ti", ":tabnew %<CR>")                     -- open current buffer in new tab
-
-Map("n", "<leader>rl", ":source $MYVIMRC<CR>")              -- reload nvim config
+Map("n", "<A-c>", ":tabnew<CR>")                            -- open new tab
+Map("n", "<A-x>", ":tabclose<CR>")                          -- close current tab
+Map("n", "<A-n>", ":tabnext<CR>")                           -- go to next tab
+Map("n", "<A-p>", ":tabprev<CR>")                           -- go to previous tab
+Map("n", "<A-f>", ":tabnew %<CR>")                          -- open current buffer in new tab
 
 Map("v", ">", ">gv")                                        -- indent while selected
 Map("v", "<", "<gv")                                        -- unindent while selected
 
 Map("n", "<leader>la", ":Lazy<CR>")                         -- open lazy dashboard
 
-Map("n", "<leader>fe", ":Oil<CR>")                          -- open oil file explorer
+Map("n", "<leader>lf", function() vim.lsp.buf.format() end) -- [L]SP [F]ormat
 
-Map("n", "<leader>lf", function() vim.lsp.buf.format() end) -- format file
+Map("n", "-", "<CMD>Oil<CR>")                               -- open file explorer
 
--- Add this mapping to check active LSP clients
-vim.keymap.set('n', '<leader>l', function()
-  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-  print("Active LSP clients: " .. #clients)
-  for _, client in ipairs(clients) do
-    print(" - " .. client.name)
-  end
-end, { desc = "Check active LSP clients" })
+Map("n", "<A-j>", ":m .+1<CR>==")                           -- move line down
+Map("n", "<A-k>", ":m .-2<CR>==")                           -- move line up
+
+Map("v", "<A-j>", ":m '>+1<CR>gv=gv")                       -- move selected lines down
+Map("v", "<A-k>", ":m '<-2<CR>gv=gv")                       -- move selected lines up
+
+Map("v", "<C-j>", "<Esc>jV")                                -- select line below
+Map("v", "<C-k>", "<Esc>kV")                                -- select line above
+
+Map("n", "<leader><leader>x", ":%lua<CR>")                  -- e[X]ecute current lua file
+
+Map("n", "<leader>a", "<CMD>Alpha<CR>")                     -- open start page
+
+Map("n", "<leader>ks", "<CMD>Screenkey toggle<CR>")         -- toggle screenkey
+
+Map("n", "Q", "<nop>")                                      -- disable capital Q
