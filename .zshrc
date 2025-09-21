@@ -1,6 +1,6 @@
 autoload -U colors && colors
 
-export TERM="kitty"
+export TERM="ghostty"
 
 plugins=(git)
 
