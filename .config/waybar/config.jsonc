@@ -24,7 +24,7 @@
   },
 
   "power-profiles-daemon": {
-    "format": "*",
+    "format": "󰠠",
     "tooltip": true,
     "tooltip-format": "Profile: {profile}",
   },

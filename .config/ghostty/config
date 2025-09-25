@@ -19,6 +19,7 @@ background = 0a0a0a
 foreground = ebebeb
 selection-foreground = fefefe
 selection-background = 363636
+background-opacity = 0.8
 
 # cursor
 cursor-color = ebebeb
@@ -34,6 +35,7 @@ window-padding-y = 4
 window-decoration = none
 
 # font
-font-family = "FiraMono Nerd Font Mono"
-font-size = 15
-adjust-cell-height = -10%
+font-family = "JetBrains Mono Nerd Font Mono"
+font-size = 14
+adjust-cell-width = 0%
+adjust-cell-height = -5%
