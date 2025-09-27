@@ -14,6 +14,7 @@ tooltip {
 
 tooltip label {
   color: rgba(240, 240, 240, 0.8);
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -23,17 +24,17 @@ window#waybar {
 
 #clock {
   color: rgba(220, 220, 220, 1.0);
-  margin: 0 10px 0 4px;
+  margin: 0 10px 0 28px;
   padding: 0 8px;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 #window {
   color: rgba(220, 220, 220, 0.8);
   padding: 0 8px;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 #workspaces {
@@ -52,13 +53,14 @@ window#waybar {
 
 #workspaces button.active {
   color: rgba(243, 233, 247, 1.0);
-  background: rgba(240, 80, 120, 0.5);
+  background: rgba(235, 60, 80, 0.6);
   box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
   border: none;
 }
 
 .modules-right {
   padding: 0;
+  margin-right: 24px;
 }
 
 .modules-right .module {
@@ -68,7 +70,8 @@ window#waybar {
 
 #power-profiles-daemon {
   font-size: 20px;
-  padding-right: 10px;
+  font-weight: 500;
+  padding-right: 14px;
 }
 
 #power-profiles-daemon.balanced {
@@ -84,7 +87,7 @@ window#waybar {
 }
 
 #pulseaudio {
-  font-weight: 700;
+  font-weight: 500;
   padding-right: 4px;
   color: rgba(220, 120, 255, 1);
 }
@@ -103,7 +106,7 @@ window#waybar {
 }
 
 #battery {
-  font-weight: 700;
+  font-weight: 500;
   color: rgba(150, 255, 150, 1.0);
   padding-right: 8px;
 }
