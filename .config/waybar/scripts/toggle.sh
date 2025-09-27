@@ -7,3 +7,4 @@ else
   # waybar isn't running
   waybar &
 fi
+

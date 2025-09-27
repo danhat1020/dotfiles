@@ -19,7 +19,7 @@ background = 0a0a0a
 foreground = ebebeb
 selection-foreground = fefefe
 selection-background = 363636
-background-opacity = 0.8
+background-opacity = 0.9
 
 # cursor
 cursor-color = ebebeb

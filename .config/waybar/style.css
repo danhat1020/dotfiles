@@ -1,134 +1,117 @@
 * {
   border: none;
   border-radius: 0;
-
-  font-family: "JetBrains Mono Nerd Font Mono", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-
-  padding: 0;
   margin: 0;
-
-  min-width: 10px;
-}
-
-window#waybar {
-  background-color: rgba(11, 10, 9, 0.0);
-  color: rgba(220, 220, 220, 1.0);
+  padding: 0;
+  font-family: "SF Pro Display";
 }
 
 tooltip {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(220, 220, 220, 0.2);
+  background: rgba(10, 10, 10, 1);
   border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 tooltip label {
-  color: rgba(220, 220, 220, 1.0);
-  font-size: 15px;
-}
-
-.modules-left {
-  background-color: rgba(11, 10, 9, 1.0);
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.3);
-}
-
-#clock {
-  margin: 10px 5px 0px 5px;
-  color: rgba(220, 220, 220, 0.75);
-  font-weight: 700;
-  font-size: 22px;
-}
-
-#custom-separator {
-  color: rgba(255, 255, 255, 0.4);
-  margin: 0;
-  font-size: 18px;
+  color: rgba(240, 240, 240, 0.8);
   font-weight: 500;
 }
 
-#power-profiles-daemon {
-  font-family: "SF Pro Display";
-  font-size: 24px;
-  font-weight: 900;
-  margin: 0;
-  padding-bottom: 10px;
+window#waybar {
+  background: rgba(10, 10, 10, 1);
 }
 
-#power-profiles-daemon.performance {
-  color: rgba(80, 220, 100, 1.0);
+#clock {
+  color: rgba(220, 220, 220, 1.0);
+  margin: 0 10px 0 4px;
+  padding: 0 8px;
+  font-size: 22px;
+  font-weight: 700;
 }
 
-#power-profiles-daemon.balanced {
-  color: rgba(80, 120, 220, 1.0);
-}
-
-#power-profiles-daemon.power-saver {
-  color: rgba(220, 100, 60, 1.0);
-}
-
-.modules-center {
-  background-color: rgba(11, 10, 9, 1.0);
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.3);
+#window {
+  color: rgba(220, 220, 220, 0.8);
+  padding: 0 8px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 #workspaces {
-  min-width: 0;
-  margin: 12px 14px 12px 14px;
-  transition: all 0.2s ease-out;
+  padding: 6px;
+  margin: 0;
 }
 
 #workspaces button {
-  color: transparent;
-  background: linear-gradient(180deg, rgba(237, 184, 146, 0.2) 0%, rgba(234, 149, 149, 0.2) 50%, rgba(215, 146, 237, 0.2) 100%);
-  transition: all 0.2s ease-out;
-  min-width: 0;
-  margin: 5px 0;
-  border-radius: 100px;
-  box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.6), 0px 0px 5px 3px rgba(234, 149, 149, 0.025);
+  color: rgba(149, 126, 130, 1.0);
+  border-radius: 10px;
+  margin: 0;
+  padding: 0 12px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 #workspaces button.active {
-  background: linear-gradient(180deg, rgba(218, 112, 37, 1.0) 0%, rgba(213, 42, 42, 1.0) 50%, rgba(176, 37, 218, 1.0) 100%);
-  color: transparent;
-  transition: all 0.2s ease-out;
-  font-size: 10px;
-  min-height: 60px;
+  color: rgba(243, 233, 247, 1.0);
+  background: rgba(240, 80, 120, 0.5);
+  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 .modules-right {
-  background-color: rgba(11, 10, 9, 1.0);
-  border-radius: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.modules-right .module {
+  margin: 0px 8px;
+  font-size: 18px;
+}
+
+#power-profiles-daemon {
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+#power-profiles-daemon.balanced {
+  color: rgba(100, 140, 255, 1.0);
+}
+
+#power-profiles-daemon.performance {
+  color: rgba(100, 255, 120, 1.0);
+}
+
+#power-profiles-daemon.power-saver {
+  color: rgba(255, 100, 100, 1.0);
 }
 
 #pulseaudio {
-  font-size: 34px;
-  padding-top: 6px;
-  color: rgba(180, 120, 220, 1.0);
+  font-weight: 700;
+  padding-right: 4px;
+  color: rgba(220, 120, 255, 1);
 }
 
 #pulseaudio.muted {
-  color: rgba(220, 220, 220, 0.3);
+  color: rgba(200, 200, 200, 0.6);
 }
 
 #network {
-  font-size: 32px;
-  padding-bottom: 6px;
-  color: rgba(220, 160, 120, 1.0);
+  padding-right: 14px;
+  color: rgba(240, 180, 100, 1.0);
 }
 
 #network.disconnected {
-  color: rgba(220, 60, 60, 1.0);
+  color: rgba(240, 60, 60, 1.0);
 }
 
 #battery {
-  font-size: 26px;
-  padding-bottom: 12px;
-  color: rgba(120, 220, 160, 1.0);
+  font-weight: 700;
+  color: rgba(150, 255, 150, 1.0);
+  padding-right: 8px;
+}
+
+#battery.warning {
+  color: rgba(240, 150, 60, 1.0);
+}
+
+#battery.critical {
+  color: rgba(240, 60, 60, 1.0);
 }
