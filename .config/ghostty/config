@@ -19,7 +19,7 @@ background = 0a0a0a
 foreground = ebebeb
 selection-foreground = fefefe
 selection-background = 363636
-background-opacity = 0.9
+background-opacity = 1.0
 
 # cursor
 cursor-color = ebebeb
@@ -30,8 +30,8 @@ cursor-text = 0a0a0a
 shell-integration-features = no-cursor
 
 # window
-window-padding-x = 4
-window-padding-y = 4
+window-padding-x = 0
+window-padding-y = 8
 window-decoration = none
 
 # font
