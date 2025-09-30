@@ -24,6 +24,7 @@ return {
     vim.lsp.enable("emmet_language_server")
     vim.lsp.enable("prettierd")
     vim.lsp.enable("omnisharp")
+    vim.lsp.enable("qmlls")
 
     vim.lsp.config("lua_ls", {
       settings = {

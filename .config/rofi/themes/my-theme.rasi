@@ -1,24 +1,23 @@
-/* Rofi theme - Clean black/purple */
-/* Save as ~/.config/rofi/themes/clean-purple.rasi */
-
 * {
-  bg-color: #141414;
+  bg-color: rgba(10, 10, 10, 0.5);
   text-color: #e0e0e0;
   accent: #e8e8e8;
+  under: #0a0a0a;
+  undacc: #c5d0f0;
   urgent: #ff6b6b;
-  selected: #4070d0;
+  selected: #4b68bd;
 
-  font: "SF Text 16";
+  font: "SF Pro Display 16";
   background-color: transparent;
   text-color: #e0e0e0;
 }
 
 window {
   background-color: @bg-color;
-  border: 1px;
-  border-color: rgba(200, 200, 200, 0.6);
-  border-radius: 10px;
-  width: 600px;
+  border: 2px;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  width: 500px;
   padding: 10px;
 }
 
@@ -46,8 +45,8 @@ entry {
 listview {
   lines: 8;
   columns: 1;
-  fixed-height: false;
-  spacing: 0px;
+  fixed-height: true;
+  spacing: 4px;
   scrollbar: false;
   cycle: true;
 }
@@ -71,7 +70,7 @@ element normal.active {
 
 element selected.normal {
   background-color: @selected;
-  text-color: @accent;
+  text-color: @under;
   border-radius: 6px;
 }
 
@@ -88,7 +87,7 @@ element selected.active {
 element-text {
   background-color: transparent;
   text-color: inherit;
-  highlight: @accent;
+  highlight: @undacc;
 }
 
 element-icon {

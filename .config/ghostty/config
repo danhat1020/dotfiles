@@ -19,7 +19,7 @@ background = 0a0a0a
 foreground = ebebeb
 selection-foreground = fefefe
 selection-background = 363636
-background-opacity = 1.0
+background-opacity = 0.5
 
 # cursor
 cursor-color = ebebeb
@@ -31,11 +31,11 @@ shell-integration-features = no-cursor
 
 # window
 window-padding-x = 0
-window-padding-y = 8
+window-padding-y = 0
 window-decoration = none
 
 # font
-font-family = "JetBrains Mono Nerd Font Mono"
-font-size = 14
+font-family = "Hack Nerd Font Mono"
+font-size = 15
 adjust-cell-width = 0%
-adjust-cell-height = -5%
+adjust-cell-height = 0%
