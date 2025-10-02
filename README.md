@@ -2,13 +2,13 @@
 ---
 
 ## Things you'll need:
-- Kitty terminal
+- kitty/ghostty terminal (take your pick)
 - eza
 - bob
 - nvim (bob nightly)
 - zsh
 - fzf
 - git
-- notomono nerd font
+- hack nerd font
 - rofi
 - waybar
