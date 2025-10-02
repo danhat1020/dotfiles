@@ -6,13 +6,14 @@
 
   "modules-left": [
     "clock",
+    "power-profiles-daemon",
     "hyprland/window",
   ],
   "modules-center": [
     "hyprland/workspaces",
   ],
   "modules-right": [
-    "power-profiles-daemon",
+    "backlight",
     "pulseaudio",
     "network",
     "battery"
@@ -27,6 +28,12 @@
     "tooltip-format": "{:%d-%m-%Y}",
   },
 
+  "power-profiles-daemon": {
+    "format": "󰠠",
+    "tooltip": true,
+    "tooltip-format": "Profile: {profile}",
+  },
+
   "hyprland/window": {
     "format": "{class}",
     "icon": true,
@@ -39,24 +46,27 @@
 
   // MIDDLE
   "hyprland/workspaces": {
-    "format": "{name}", // 
+    "format": "{name}",
     "persistent-workspaces": {
       "*": 10,
     },
   },
 
   // RIGHT
-  // power-profiles-daemon, pulseaudio, network, battery
-  "power-profiles-daemon": {
-    "format": "󰠠",
-    "tooltip": true,
-    "tooltip-format": "Profile: {profile}",
+  // backlight, pulseaudio, network, battery
+  "backlight": {
+    "interval": 10,
+    "format": "{icon}    {percent}%",
+    "format-icons": ["󰃞", "󰃞", "󰃞", "󰃟", "󰃟", "󰃟", "󰃟", "󰃠", "󰃠", "󰃠", "󰃠"],
+    "tooltip": false,
+    "reverse-scrolling": true,
   },
 
   "pulseaudio": {
     "format": "󰕾   {volume}%",
     "format-muted": "󰖁   MUTED",
     "tooltip": false,
+    "reverse-scrolling": true,
   },
 
   "network": {
