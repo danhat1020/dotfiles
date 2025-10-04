@@ -65,8 +65,8 @@ return {
       icons_enabled = true,
       options = {
         theme = my_theme,
-        component_separators = { left = "|", right = "|" },
-        section_separators = { left = "|", right = "" },
+        component_separators = { left = "|", right = "" },
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { 'mode' },
@@ -77,7 +77,7 @@ return {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff6030" },
+            color = { fg = "#ff4030" },
           },
           { "filetype" },
         },

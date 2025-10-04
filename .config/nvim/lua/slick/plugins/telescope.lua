@@ -32,9 +32,9 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "<leader>sf", builtin.find_files, opts)
+    vim.keymap.set("n", "<leader>sf", builtin.find_files)
     vim.keymap.set("n", "<leader>ss", function()
       builtin.grep_string({ search = vim.fn.input("Grep: ") })
-    end, opts)
+    end)
   end,
 }

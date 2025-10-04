@@ -12,7 +12,7 @@ export PATH="$HOME/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-alias ls="eza --oneline --color=always --icons=always --all --sort=name --group-directories-first"
+alias ls="eza --oneline -a --show-symlinks --color=always --icons=always --sort=name --git-ignore --group-directories-first"
 alias tree="eza --all --tree --git-ignore"
 alias icat="kitten icat"
 alias logo="clear && fastfetch"
@@ -69,9 +69,9 @@ git_prompt() {
 
 GREY=$'%{\e[38;5;242m%}'
 PURPLE=$'%{\e[38;5;97m%}'
-BLUE=$'%{\e[38;5;62m%}'
-SYMBOL=$'%{\e[38;5;167m%}'
+BLUE=$'%{\e[38;5;68m%}'
+SYMBOL=$'%{\e[38;5;1m%}'
 RESET_COLOR=$'%{\e[0m%}'
 
-# PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}[${BLUE}$(git_prompt)${GREY}]${RESET_COLOR}"; fi) ${SYMBOL}λ ${RESET_COLOR}'
-PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}[${BLUE}$(git_prompt)${GREY}]${RESET_COLOR}"; fi) ${SYMBOL}$ ${RESET_COLOR}'
+
+PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${SYMBOL}λ ${RESET_COLOR}'

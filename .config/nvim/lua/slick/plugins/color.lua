@@ -5,7 +5,5 @@ return {
   config = function()
     require("ashen").setup({ transparent = true })
     vim.cmd.colorscheme("ashen")
-
-    Update_tabline()
   end,
 }

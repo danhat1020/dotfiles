@@ -19,8 +19,7 @@ tooltip label {
 }
 
 window#waybar {
-  /* background: rgba(10, 10, 10, 0.1); */
-  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 10%, rgba(10, 10, 10, 0.1) 90%);
+  background: rgba(10, 10, 10, 1.0);
   border: none;
 }
 
@@ -69,22 +68,26 @@ window#waybar {
 }
 
 #workspaces button {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   min-height: 0;
-  margin: 3px 2px;
-  padding: 0 8px;
+  margin: 3px 3px;
+  padding: 0 6px;
+  background: none;
+  box-shadow: none;
+  transition: all 0.2s ease-out;
 }
 
 #workspaces button label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 #workspaces button.active {
-  color: rgba(255, 255, 255, 1.0);
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.35);
+  color: rgba(240, 240, 240, 1.0);
+  padding: 0 24px;
+  background: rgba(220, 220, 220, 0.1);
+  box-shadow: inset 0 2 2 0 rgba(255, 255, 255, 0.15), inset 0 0 5 3 rgba(255, 255, 255, 0.1);
 }
 
 #workspaces button.active label {

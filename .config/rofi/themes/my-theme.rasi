@@ -1,5 +1,5 @@
 * {
-  bg-color: rgba(10, 10, 10, 0.5);
+  bg-color: #0a0a0a;
   text-color: #e0e0e0;
   accent: #e8e8e8;
   under: #0a0a0a;
@@ -14,9 +14,9 @@
 
 window {
   background-color: @bg-color;
-  border: 2px;
-  border-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  border: 1px;
+  border-color: rgba(200, 200, 200, 0.4);
+  border-radius: 10px;
   width: 500px;
   padding: 10px;
 }
@@ -71,7 +71,7 @@ element normal.active {
 element selected.normal {
   background-color: @selected;
   text-color: @under;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 element selected.urgent {

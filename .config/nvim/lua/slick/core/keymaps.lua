@@ -1,53 +1,59 @@
-function Map(mode, lhs, rhs, opts)
-  local options = { silent = true, noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-Map({ "n", "v", "x" }, "<leader>y", "\"+y")                 -- copy to clipboard
-Map({ "n", "v", "x" }, "<leader>p", "\"+p")                 -- paste from clipboard
+local map = vim.keymap.set
 
-Map("n", "n", "nzzzv")                                      -- center when searching
-Map("n", "N", "Nzzzv")                                      -- center when searching backward
-Map("n", "<C-d>", "<C-d>zz")                                -- center when jumping down
-Map("n", "<C-u>", "<C-u>zz")                                -- center when jumping up
-Map("n", "G", "Gzz")                                        -- center when going to bottom of file
+-- clipboard
+map({ "n", "v", "x" }, "<leader>y", "\"+y")
+map({ "n", "v", "x" }, "<leader>p", "\"+p")
 
-Map("i", "<C-BS>", "<C-w>")                                 -- ctrl+backspace deletes whole word
+-- center when moving around
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "G", "Gzz")
 
-Map("n", "<A-c>", ":tabnew<CR>")                            -- open new tab
-Map("n", "<A-x>", ":tabclose<CR>")                          -- close current tab
-Map("n", "<A-n>", ":tabnext<CR>")                           -- go to next tab
-Map("n", "<A-p>", ":tabprev<CR>")                           -- go to previous tab
-Map("n", "<A-f>", ":tabnew %<CR>")                          -- open current buffer in new tab
+-- keypress corrections
+map("i", "<C-BS>", "<C-w>")
+map({ "n", "v", "x" }, ":", ";")
+map({ "n", "v", "x" }, ";", ":")
 
-Map("v", ">", ">gv")                                        -- indent while selected
-Map("v", "<", "<gv")                                        -- unindent while selected
+-- tabs
+map("n", "<A-c>", ":tabnew<CR>")
+map("n", "<A-x>", ":tabclose<CR>")
+map("n", "<A-n>", ":tabnext<CR>")
+map("n", "<A-p>", ":tabprev<CR>")
+map("n", "<A-f>", ":tabnew %<CR>")
 
-Map("n", "<leader>la", ":Lazy<CR>")                         -- open lazy dashboard
+-- plugin functions
+map("n", "<leader>la", ":Lazy<CR>")
+map("n", "<leader>a", "<CMD>Alpha<CR>")
+map("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
-Map("n", "<leader>lf", function() vim.lsp.buf.format() end) -- [L]SP [F]ormat
+-- file navigation
+map("n", "-", "<CMD>Oil<CR>")
+map("n", "<leader>cd", function()
+  if vim.bo.filetype == "oil" then
+    local oil_dir = require("oil").get_current_dir()
+    if oil_dir then
+      vim.cmd("lcd " .. oil_dir)
+    end
+  else
+    vim.cmd("lcd %:h")
+  end
+end)
 
-Map("n", "-", "<CMD>Oil<CR>")                               -- open file explorer
+-- moving lines
+map("n", "<A-j>", ":m .+1<CR>==", { silent = true, noremap = true })
+map("n", "<A-k>", ":m .-2<CR>==", { silent = true, noremap = true })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
-Map("n", "<A-j>", ":m .+1<CR>==")                           -- move line down
-Map("n", "<A-k>", ":m .-2<CR>==")                           -- move line up
+-- presentation
+map("v", "<C-j>", "<Esc>jV")
+map("v", "<C-k>", "<Esc>kV")
 
-Map("v", "<A-j>", ":m '>+1<CR>gv=gv")                       -- move selected lines down
-Map("v", "<A-k>", ":m '<-2<CR>gv=gv")                       -- move selected lines up
-
-Map("v", "<C-j>", "<Esc>jV")                                -- select line below
-Map("v", "<C-k>", "<Esc>kV")                                -- select line above
-
-Map("n", "<leader><leader>x", ":%lua<CR>")                  -- e[X]ecute current lua file
-
-Map("n", "<leader>a", "<CMD>Alpha<CR>")                     -- open start page
-
-Map("n", "<leader>ks", "<CMD>Screenkey toggle<CR>")         -- toggle screenkey
-
-Map("n", "Q", "<nop>")                                      -- disable capital Q
+-- other
+map("n", "<leader><leader>x", ":%lua<CR>")
+map({ "n", "v" }, "<leader>n", ":norm ")

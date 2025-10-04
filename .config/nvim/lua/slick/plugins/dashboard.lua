@@ -49,6 +49,8 @@ return {
     }
 
     local ansi_regular = {
+      [[                                                 ]],
+      [[                                                 ]],
       [[███    ██ ███████  ██████  ██    ██ ██ ███    ███]],
       [[████   ██ ██      ██    ██ ██    ██ ██ ████  ████]],
       [[██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██]],
@@ -80,14 +82,14 @@ return {
       [[                                                           ]],
     }
 
-    dashboard.section.header.val = dos_rebel
+    dashboard.section.header.val = ansi_regular
 
     dashboard.section.buttons.val = {
       dashboard.button("-", "  |  Open file explorer", "<CMD>Oil<CR>"),
       dashboard.button("SPC sf", "  |  Search files with Telescope", "<CMD>Telescope find_files<CR>"),
       dashboard.button("SPC la", "󰚥  |  Open Lazy", "<CMD>Lazy<CR>"),
-      dashboard.button("rc", "  |  NeoVim Config", "<CMD>tcd ~/dotfiles/.config/nvim<CR><CMD>Oil<CR>"),
-      dashboard.button("cf", "󰟃  |  Edit dotfiles", "<CMD>tcd ~/dotfiles<CR><CMD>Oil<CR>"),
+      dashboard.button("rc", "  |  NeoVim Config", "<CMD>lcd ~/dotfiles/.config/nvim<CR><CMD>Oil<CR>"),
+      dashboard.button("cf", "󰟃  |  Edit dotfiles", "<CMD>lcd ~/dotfiles<CR><CMD>Oil<CR>"),
       dashboard.button("q", "󰅙  |  Quit NeoVim", "<CMD>qa<CR>"),
     }
 

@@ -1,9 +1,9 @@
 colourful: true
 
 filekinds:
-  normal: { foreground: "#c0caf5" }
-  directory: { foreground: "#7aa2f7" }
-  symlink: { foreground: "#2ac3de" }
+  normal: { foreground: "#abb6ba" }
+  directory: { foreground: "#5f61d9" }
+  symlink: { foreground: "#3ca7bd" }
   pipe: { foreground: "#414868" }
   block_device: { foreground: "#e0af68" }
   char_device: { foreground: "#e0af68" }
@@ -15,7 +15,7 @@ filekinds:
 perms:
   user_read: { foreground: "#2ac3de" }
   user_write: { foreground: "#bb9af7" }
-  user_execute_file: { foreground: "#9ece6a" }
+  user_execute_file: { foreground: "#63db4b" }
   user_execute_other: { foreground: "#9ece6a" }
   group_read: { foreground: "#2ac3de" }
   group_write: { foreground: "#ff9e64" }
@@ -28,13 +28,13 @@ perms:
   attribute: { foreground: "#737aa2" }
 
 size:
-  major: { foreground: "#2ac3de" }
-  minor: { foreground: "#9d7cd8" }
-  number_byte: { foreground: "#a9b1d6" }
-  number_kilo: { foreground: "#89ddff" }
-  number_mega: { foreground: "#2ac3de" }
-  number_giga: { foreground: "#ff9e64" }
-  number_huge: { foreground: "#ff007c" }
+  major: { foreground: "#cf6f4c" }
+  minor: { foreground: "#895fd4" }
+  number_byte: { foreground: "#7b89c9" }
+  number_kilo: { foreground: "#c572d4" }
+  number_mega: { foreground: "#c95d74" }
+  number_giga: { foreground: "#cf5e4c" }
+  number_huge: { foreground: "#e6712e" }
   unit_byte: { foreground: "#a9b1d6" }
   unit_kilo: { foreground: "#89ddff" }
   unit_mega: { foreground: "#2ac3de" }
@@ -92,7 +92,7 @@ punctuation: { foreground: "#414868" }
 date: { foreground: "#e0af68" }
 inode: { foreground: "#737aa2" }
 blocks: { foreground: "#737aa2" }
-header: { foreground: "#a9b1d6" }
+header: { foreground: "#9aa7ab" }
 octal: { foreground: "#ff9e64" }
 flags: { foreground: "#9d7cd8" }
 
