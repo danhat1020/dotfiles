@@ -36,5 +36,6 @@ return {
     vim.keymap.set("n", "<leader>ss", function()
       builtin.grep_string({ search = vim.fn.input("Grep: ") })
     end)
+    vim.keymap.set("n", "<leader>sc", builtin.colorscheme)
   end,
 }

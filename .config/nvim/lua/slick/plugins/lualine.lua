@@ -6,39 +6,39 @@ return {
     local lazy_status = require("lazy.status")
 
     local colors = {
-      normal = "#4871e0",
-      insert = "#da48e0",
-      visual = "#9c48e0",
-      replace = "#e04863",
-      command = "#e08748",
-      terminal = "#48e07d",
+      normal = "#3048BF",
+      insert = "#9B30BF",
+      visual = "#BF3048",
+      replace = "#BF30B3",
+      command = "#BF6030",
+      terminal = "#30BF54",
       fg = "#e0e0e0",
-      bg = "#0a0a0a",
+      bg = "#101010",
     }
 
     local my_theme = {
       normal = {
-        a = { bg = colors.normal, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.normal, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       insert = {
-        a = { bg = colors.insert, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.insert, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       visual = {
-        a = { bg = colors.visual, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.visual, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       command = {
-        a = { bg = colors.command, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.command, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       replace = {
-        a = { bg = colors.replace, fg = colors.bg, gui = "bold" },
+        a = { bg = colors.replace, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -65,7 +65,7 @@ return {
       icons_enabled = true,
       options = {
         theme = my_theme,
-        component_separators = { left = "|", right = "" },
+        component_separators = { left = "  ", right = "" },
         section_separators = { left = "", right = "" },
       },
       sections = {

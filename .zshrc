@@ -67,10 +67,10 @@ git_prompt() {
   fi
 }
 
-GREY=$'%{\e[38;5;242m%}'
-PURPLE=$'%{\e[38;5;97m%}'
-BLUE=$'%{\e[38;5;68m%}'
-SYMBOL=$'%{\e[38;5;1m%}'
+GREY=$'%{\e[38;5;240m%}'
+PURPLE=$'%{\e[38;5;134m%}'
+BLUE=$'%{\e[38;5;26m%}'
+SYMBOL=$'%{\e[38;5;203m%}'
 RESET_COLOR=$'%{\e[0m%}'
 
 

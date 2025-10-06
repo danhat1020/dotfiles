@@ -2,8 +2,8 @@
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
-opt.scrolloff = 10
-opt.sidescrolloff = 10
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 opt.wrap = false
 opt.tabstop = 2
 opt.softtabstop = 2

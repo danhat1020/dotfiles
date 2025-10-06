@@ -82,7 +82,7 @@ return {
       [[                                                           ]],
     }
 
-    dashboard.section.header.val = ansi_regular
+    dashboard.section.header.val = dos_rebel
 
     dashboard.section.buttons.val = {
       dashboard.button("-", "  |  Open file explorer", "<CMD>Oil<CR>"),
