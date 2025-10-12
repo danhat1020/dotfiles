@@ -59,11 +59,11 @@ git_prompt() {
     # Get git status
     local git_status=""
     if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      git_status="${GITST}[!]"  # Indicate there are changes
+      git_status=" ${GITST}[!]"  # Indicate there are changes
     fi
 
     # Return the formatted git info
-    echo "${GREY}in ${GIT} ${branch} ${git_status}"
+    echo "${GREY}in ${GIT} ${branch}${git_status}"
   fi
 }
 
