@@ -1,26 +1,10 @@
 return {
   {
-    "Yazeed1s/oh-lucy.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.oh_lucy_evening_transparent_background = true
-    end,
-  },
-  {
     "ficcdaf/ashen.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("ashen").setup({ transparent = true })
-    end,
-  },
-  {
-    "rose-pine/neovim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("rose-pine").setup({ styles = { transparency = true } })
     end,
   },
   {
@@ -30,9 +14,39 @@ return {
     priority = 1000,
     config = function()
       require("github-theme").setup({ options = { transparent = true } })
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true,
+        float = {
+          transparent = true,
+          solid = true,
+        },
+        show_end_of_buffer = true,
+        term_colors = true,
+      })
 
-      local color = "ashen"
-      vim.cmd.colorscheme(color)
+      -- vim.cmd.colorscheme("catppuccin")
+    end
+  },
+  {
+    "vague2k/vague.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("vague").setup({
+        transparent = true,
+        italic = false,
+      })
+
+      vim.cmd.colorscheme("vague")
     end,
   },
 }

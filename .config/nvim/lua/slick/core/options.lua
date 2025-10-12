@@ -1,31 +1,31 @@
 -- OPTIONS
-local opt = vim.opt
-opt.number = true
-opt.relativenumber = true
-opt.scrolloff = 8
-opt.sidescrolloff = 8
-opt.wrap = false
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
-opt.smartindent = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.hlsearch = false
-opt.incsearch = true
-opt.termguicolors = true
-opt.signcolumn = "yes"
-opt.winborder = "rounded"
-opt.swapfile = false
-opt.undofile = true
-opt.path:append("**")
-opt.showmode = false
-opt.backspace = "indent,eol,start"
+local o = vim.opt
+o.number = true
+o.relativenumber = true
+o.scrolloff = 8
+o.sidescrolloff = 8
+o.wrap = false
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
+o.expandtab = true
+o.autoindent = true
+o.smartindent = true
+o.ignorecase = true
+o.smartcase = true
+o.hlsearch = false
+o.incsearch = true
+o.termguicolors = true
+o.signcolumn = "yes"
+o.winborder = "rounded"
+o.swapfile = false
+o.undofile = true
+o.path:append("**")
+o.showmode = false
+o.backspace = "indent,eol,start"
 vim.g.editorconfig = true
-opt.updatetime = 50
-opt.guicursor = ""
+o.updatetime = 50
+o.guicursor = ""
 
 -- AUTOCOMMANDS
 local highlight_yank_group = vim.api.nvim_create_augroup("HighlightYank", {})

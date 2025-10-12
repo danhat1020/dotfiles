@@ -12,7 +12,7 @@ export PATH="$HOME/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-alias ls="eza --oneline -a --show-symlinks --color=always --icons=always --sort=name --git-ignore --group-directories-first"
+alias ls="eza -a --show-symlinks --color=always --icons=always --sort=name --git-ignore --group-directories-first"
 alias tree="eza --all --tree --git-ignore"
 alias icat="kitten icat"
 alias logo="clear && fastfetch"
@@ -59,19 +59,21 @@ git_prompt() {
     # Get git status
     local git_status=""
     if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      git_status="*"  # Indicate there are changes
+      git_status="${GITST}[!]"  # Indicate there are changes
     fi
 
     # Return the formatted git info
-    echo "${branch}${git_status}"
+    echo "${GREY}in ${GIT} ${branch} ${git_status}"
   fi
 }
 
-GREY=$'%{\e[38;5;240m%}'
-PURPLE=$'%{\e[38;5;134m%}'
-BLUE=$'%{\e[38;5;26m%}'
-SYMBOL=$'%{\e[38;5;203m%}'
+GREY=$'%{\e[38;5;246m%}'
+SYM=$'%{\e[38;5;1m%}'
+GITST=$'%{\e[38;5;166m%}'
+GIT=$'%{\e[38;5;62m%}'
+DIR=$'%{\e[38;5;133m%}'
+
 RESET_COLOR=$'%{\e[0m%}'
 
-
-PROMPT='${PURPLE}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " ${GREY}(${BLUE}$(git_prompt)${GREY})${RESET_COLOR}"; fi) ${SYMBOL}λ ${RESET_COLOR}'
+# λ
+PROMPT='${DIR}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)${RESET_COLOR}"; fi) ${SYM}$ ${RESET_COLOR}'

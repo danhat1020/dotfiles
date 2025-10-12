@@ -25,6 +25,7 @@ return {
     vim.lsp.enable("prettierd")
     vim.lsp.enable("omnisharp")
     vim.lsp.enable("qmlls")
+    vim.lsp.enable("clangd")
 
     vim.lsp.config("lua_ls", {
       settings = {

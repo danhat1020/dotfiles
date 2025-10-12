@@ -15,16 +15,9 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "G", "Gzz")
 
 -- keypress corrections
-map("i", "<C-BS>", "<C-w>")
+map("i", "<A-BS>", "<C-w>")
 map({ "n", "v", "x" }, ":", ";")
 map({ "n", "v", "x" }, ";", ":")
-
--- tabs
-map("n", "<A-c>", ":tabnew<CR>")
-map("n", "<A-x>", ":tabclose<CR>")
-map("n", "<A-n>", ":tabnext<CR>")
-map("n", "<A-p>", ":tabprev<CR>")
-map("n", "<A-f>", ":tabnew %<CR>")
 
 -- plugin functions
 map("n", "<leader>la", ":Lazy<CR>")
@@ -58,3 +51,12 @@ map("v", "<C-k>", "<Esc>kV")
 map("n", "<leader><leader>x", ":%lua<CR>")
 map({ "n", "v" }, "<leader>n", ":norm ")
 map("n", "<Space>", "<Nop>")
+
+local function quickfix()
+  vim.lsp.buf.code_action({
+    filter = function(a) return a.isPreferred end,
+    apply = true
+  })
+end
+
+vim.keymap.set('n', '<leader>qf', quickfix, { silent = true, noremap = true })

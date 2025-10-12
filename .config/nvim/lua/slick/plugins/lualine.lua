@@ -13,7 +13,7 @@ return {
       command = "#BF6030",
       terminal = "#30BF54",
       fg = "#e0e0e0",
-      bg = "#101010",
+      bg = "#0c0c0c",
     }
 
     local my_theme = {
@@ -65,8 +65,8 @@ return {
       icons_enabled = true,
       options = {
         theme = my_theme,
-        component_separators = { left = "  ", right = "" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = " ⟶ ", right = " ⟵ " },
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { 'mode' },
