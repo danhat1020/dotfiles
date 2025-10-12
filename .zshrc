@@ -63,7 +63,7 @@ git_prompt() {
     fi
 
     # Return the formatted git info
-    echo "${GREY}in ${GIT} ${branch}${git_status}"
+    echo "${GREY}on ${GIT} ${branch}${git_status}"
   fi
 }
 
@@ -73,7 +73,10 @@ GITST=$'%{\e[38;5;166m%}'
 GIT=$'%{\e[38;5;62m%}'
 DIR=$'%{\e[38;5;133m%}'
 
+BOLD=$'%{\e[1m%}'
+RESET_BOLD=$'%{\e[22m%}'
+
 RESET_COLOR=$'%{\e[0m%}'
 
 # λ
-PROMPT='${DIR}%~${RESET_COLOR}$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)${RESET_COLOR}"; fi) ${SYM}$ ${RESET_COLOR}'
+PROMPT='${BOLD}${DIR}%~$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)${RESET_COLOR}"; fi) ${SYM}$ ${RESET_COLOR}'
