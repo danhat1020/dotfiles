@@ -25,7 +25,7 @@ o.showmode = false
 o.backspace = "indent,eol,start"
 vim.g.editorconfig = true
 o.updatetime = 50
-o.guicursor = ""
+-- o.guicursor = ""
 
 -- AUTOCOMMANDS
 local highlight_yank_group = vim.api.nvim_create_augroup("HighlightYank", {})

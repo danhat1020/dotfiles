@@ -49,7 +49,6 @@ map("v", "<C-k>", "<Esc>kV")
 
 -- other
 map("n", "<leader><leader>x", ":%lua<CR>")
-map({ "n", "v" }, "<leader>n", ":norm ")
 map("n", "<Space>", "<Nop>")
 
 local function quickfix()

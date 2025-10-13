@@ -12,8 +12,8 @@ return {
       replace = "#BF30B3",
       command = "#BF6030",
       terminal = "#30BF54",
-      fg = "#e0e0e0",
-      bg = "#0c0c0c",
+      fg = "#ffffff",
+      bg = "#000000",
     }
 
     local my_theme = {

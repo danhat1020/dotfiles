@@ -59,24 +59,26 @@ git_prompt() {
     # Get git status
     local git_status=""
     if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      git_status=" ${GITST}[!]"  # Indicate there are changes
+      git_status="${GITST}*"  # Indicate there are changes
     fi
 
     # Return the formatted git info
-    echo "${GREY}on ${GIT} ${branch}${git_status}"
+    echo "${GREY}on ${GIT} ${BOLD}${branch}${git_status}${RESET_BOLD}"
   fi
 }
 
-GREY=$'%{\e[38;5;246m%}'
-SYM=$'%{\e[38;5;1m%}'
-GITST=$'%{\e[38;5;166m%}'
-GIT=$'%{\e[38;5;62m%}'
-DIR=$'%{\e[38;5;133m%}'
+# SYM=$'%{\033[38;2;210;78;71m%}'
+# GITST=$'%{\033[38;2;210;62;72m%}'
+# GIT=$'%{\033[38;2;101;108;210m%}'
+# DIR=$'%{\033[38;2;176;79;196m%}'
+# GREY=$'%{\033[38;2;150;150;150m%}'
+#
+# BOLD=$'%{\e[1m%}'
+# RESET_BOLD=$'%{\e[22m%}'
+#
+# RESET_COLOR=$'%{\e[0m%}'
+#
+# # λ
+# PROMPT='${BOLD}${DIR} %~${RESET_BOLD}$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)"; fi) ${SYM}$ ${RESET_COLOR}'
 
-BOLD=$'%{\e[1m%}'
-RESET_BOLD=$'%{\e[22m%}'
-
-RESET_COLOR=$'%{\e[0m%}'
-
-# λ
-PROMPT='${BOLD}${DIR}%~$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)${RESET_COLOR}"; fi) ${SYM}$ ${RESET_COLOR}'
+eval $(oh-my-posh init zsh --config "~/.config/oh-my-posh/zen.toml")

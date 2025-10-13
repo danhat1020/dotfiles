@@ -32,8 +32,6 @@ return {
         show_end_of_buffer = true,
         term_colors = true,
       })
-
-      -- vim.cmd.colorscheme("catppuccin")
     end
   },
   {
@@ -45,8 +43,20 @@ return {
         transparent = true,
         italic = false,
       })
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        },
+      })
 
-      vim.cmd.colorscheme("vague")
+      vim.cmd.colorscheme("nightfox")
     end,
   },
 }

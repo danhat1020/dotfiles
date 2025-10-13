@@ -1,0 +1,73 @@
+console_title_template = "{{ .Shell }} in {{ .Folder }}"
+version = 3
+final_space = true
+
+## FIRST LINE
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+## PATH
+[[blocks.segments]]
+type = "path"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+foreground = "p:purple"
+background = "p:purple_bg"
+template = "<b> {{ .Path }} </b>"
+
+[blocks.segments.properties]
+left_format = "󰉋 %s"
+style = "full"
+
+[[blocks.segments]]
+type = "text"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+foreground = "transparent"
+background = "transparent"
+template = "."
+
+## GIT STATUS
+[[blocks.segments]]
+type = "git"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+foreground = "p:blue"
+background = "p:blue_bg"
+template = " in <b>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}🞤{{ end }}</b> "
+
+[blocks.segments.properties]
+fetch_status = true
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+## PROMPT SYMBOL
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground = "p:purple"
+background = "p:transparent"
+template = "❱"
+
+[transient_prompt]
+foreground = "p:purple2"
+background = "transparent"
+template = "❯ "
+
+[palette]
+grey = "#707070"
+red = "#FF9C9C"
+blue = "#6B68C9"
+blue_bg = "#131223"
+purple = "#C175E4"
+purple2 = "#714F80"
+purple_bg = "#191120"
+black = "#000000"
