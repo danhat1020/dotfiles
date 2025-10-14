@@ -1,21 +1,35 @@
-autoload -U colors && colors
-
-export TERM="ghostty"
-
-plugins=(git)
-
-export LANG=en_US.UTF-8
-export PATH="$HOME/.cargo/bin:$PATH"
-
+export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/bin:$PATH"
 
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
+ZSH_THEME="zen"
 
+CASE_SENSITIVE="false"
+
+zstyle ':omz:update' mode auto      # update automatically without asking
+
+zstyle ':omz:update' frequency 7
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git starship zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
 alias ls="eza -a --show-symlinks --color=always --icons=always --sort=name --git-ignore --group-directories-first"
 alias tree="eza --all --tree --git-ignore"
 alias icat="kitten icat"
-alias logo="clear && fastfetch"
 alias vim="nvim"
 alias showcolor="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/e50a28ec54188d2413518788de6c6367ffcea4f7/print256colours.sh | zsh"
 alias rm="rm -rf"
@@ -28,8 +42,6 @@ alias cr="cargo run"
 alias cb="cargo build"
 alias cn="cargo new"
 
-alias commit="git commit -m"
-
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd -p --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -40,45 +52,3 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-DISABLE_AUTO_TITLE="true"
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export XCURSOR_SIZE=30
-
-setopt PROMPT_SUBST
-
-# Function to get git branch and status
-git_prompt() {
-  # Check if we're in a git repository
-  if git rev-parse --git-dir > /dev/null 2>&1; then
-    # Get the current branch name
-    local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-
-    # Get git status
-    local git_status=""
-    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      git_status="${GITST}*"  # Indicate there are changes
-    fi
-
-    # Return the formatted git info
-    echo "${GREY}on ${GIT} ${BOLD}${branch}${git_status}${RESET_BOLD}"
-  fi
-}
-
-# SYM=$'%{\033[38;2;210;78;71m%}'
-# GITST=$'%{\033[38;2;210;62;72m%}'
-# GIT=$'%{\033[38;2;101;108;210m%}'
-# DIR=$'%{\033[38;2;176;79;196m%}'
-# GREY=$'%{\033[38;2;150;150;150m%}'
-#
-# BOLD=$'%{\e[1m%}'
-# RESET_BOLD=$'%{\e[22m%}'
-#
-# RESET_COLOR=$'%{\e[0m%}'
-#
-# # λ
-# PROMPT='${BOLD}${DIR} %~${RESET_BOLD}$(if [[ -n $(git_prompt) ]]; then echo " $(git_prompt)"; fi) ${SYM}$ ${RESET_COLOR}'
-
-eval $(oh-my-posh init zsh --config "~/.config/oh-my-posh/zen.toml")

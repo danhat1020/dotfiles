@@ -24,7 +24,7 @@ map("n", "<leader>la", ":Lazy<CR>")
 map("n", "<leader>a", "<CMD>Alpha<CR>")
 map("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
--- file navigation
+-- navigation
 map("n", "-", "<CMD>Oil<CR>")
 map("n", "<leader>cd", function()
   if vim.bo.filetype == "oil" then
@@ -36,6 +36,7 @@ map("n", "<leader>cd", function()
     vim.cmd("lcd %:h")
   end
 end)
+map("n", "<leader>st", "<CMD>TodoTelescope<CR>", { silent = true, noremap = true })
 
 -- moving lines
 map("n", "<A-j>", ":m .+1<CR>==", { silent = true, noremap = true })
