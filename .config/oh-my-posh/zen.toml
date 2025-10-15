@@ -2,57 +2,73 @@ console_title_template = "{{ .Shell }} in {{ .Folder }}"
 version = 3
 final_space = true
 
-## FIRST LINE
 [[blocks]]
 type = "prompt"
 alignment = "left"
 newline = true
 
-## PATH
-[[blocks.segments]]
-type = "path"
-style = "plain"
-foreground = "p:purple"
-background = "transparent"
-template = "<b>{{ .Path }} </b>"
+  [[blocks.segments]]
+  type = "path"
+  style = "plain"
+  background = "transparent"
+  foreground = "p:purple"
+  template = "󰉋 {{ .Path }}" 
 
-[blocks.segments.properties]
-left_format = "󰉋 %s"
-style = "full"
+    [blocks.segments.properties]
+    style = "full"
 
-## GIT STATUS
-[[blocks.segments]]
-type = "git"
-style = "plain"
-foreground = "p:grey"
-background = "transparent"
-template = "on <p:blue><b>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*{{ end }}</b> "
+  [[blocks.segments]]
+  type = "git"
+  style = "plain"
+  background = "transparent"
+  foreground = "p:dark_blue"
+  template = " on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
 
-[blocks.segments.properties]
-fetch_status = true
+    [blocks.segments.properties]
+    fetch_status = true
+
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+  [[blocks.segments]]
+  type = "time"
+  style = "plain"
+  foreground = "p:grey"
+
+    [blocks.segments.properties]
+    time_format = "@ <b>15:04  </b>"
 
 [[blocks]]
 type = "prompt"
 alignment = "left"
 newline = true
 
-## PROMPT SYMBOL
-[[blocks.segments]]
-type = "text"
-style = "plain"
-foreground = "p:purple"
-background = "p:transparent"
-template = "<p:purple>❱"
+  [[blocks.segments]]
+  type = "text"
+  style = "plain"
+  foreground_templates = [
+    "{{ if gt .Code 0 }}p:red{{ end }}",
+    "{{ if eq .Code 0 }}p:blue{{ end }}",
+  ]
+  background = "transparent"
+  template = "❱"
+
+[secondary_prompt]
+background = "transparent"
+foreground = "p:blue"
+template = "❱ "
 
 [transient_prompt]
-foreground = "p:purple2"
 background = "transparent"
-template = "❯ "
+foreground = "p:blue"
+template = "❱ "
 
 [palette]
-grey = "#808080"
-red = "#EF5F5F"
-blue = "#5955C7"
-purple = "#A957CE"
-purple2 = "#5D3E6A"
-black = "#000000"
+grey = "#606060"
+red = "#D04952"
+light_blue = "#4D79E8"
+blue = "#8D57DE"
+dark_blue = "#3E4A6F"
+purple = "#BE70E2"
+bg = "#101010"

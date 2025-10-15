@@ -15,11 +15,11 @@ palette = 12=#7e7777
 palette = 13=#e7dfdf
 palette = 14=#bd5187
 palette = 15=#f4ecec
-background = 0a0a0a
+background = 000000
 foreground = ebebeb
 selection-foreground = fefefe
 selection-background = 363636
-background-opacity = 0.5
+background-opacity = 1.0
 
 # cursor
 cursor-color = ebebeb
@@ -36,6 +36,6 @@ window-decoration = none
 
 # font
 font-family = "Hack Nerd Font Mono"
-font-size = 15
+font-size = 16
 adjust-cell-width = 0%
 adjust-cell-height = 0%

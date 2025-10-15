@@ -7,8 +7,10 @@
 - bob
 - nvim (bob nightly)
 - zsh
+- oh-my-zsh
+- oh-my-posh
 - fzf
 - git
-- hack nerd font
+- hack nerd font mono
 - rofi
 - waybar

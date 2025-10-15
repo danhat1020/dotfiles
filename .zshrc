@@ -1,8 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/bin:$PATH"
 
-ZSH_THEME="zen"
-
 CASE_SENSITIVE="false"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
@@ -12,9 +10,11 @@ zstyle ':omz:update' frequency 7
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git starship zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+eval $(oh-my-posh init zsh --config "~/.config/oh-my-posh/zen.toml")
 
 # User configuration
 
