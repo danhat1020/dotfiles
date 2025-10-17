@@ -1,4 +1,4 @@
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
+console_title_template = "{{ .Shell }}"
 version = 3
 final_space = true
 
@@ -12,7 +12,7 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:purple"
-  template = "󰉋 {{ .Path }}" 
+  template = "󰉋 {{ .Path }}"
 
     [blocks.segments.properties]
     style = "full"
@@ -22,10 +22,21 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:dark_blue"
-  template = " on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
+  template = " → <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
 
     [blocks.segments.properties]
     fetch_status = true
+
+  [[blocks.segments]]
+  type = "executiontime"
+  style = "plain"
+  background = "transparent"
+  foreground = "p:dark_grey"
+  template = "  (in {{ .FormattedMs }})"
+
+    [blocks.segments.properties]
+    always_enabled = true
+    style = "austin"
 
 [[blocks]]
 type = "prompt"
@@ -34,10 +45,10 @@ alignment = "right"
   [[blocks.segments]]
   type = "time"
   style = "plain"
-  foreground = "p:grey"
+  foreground = "p:light_grey"
 
     [blocks.segments.properties]
-    time_format = "@ <b>15:04  </b>"
+    time_format = "@ <b>15:04</b>   "
 
 [[blocks]]
 type = "prompt"
@@ -65,10 +76,11 @@ foreground = "p:blue"
 template = "❱ "
 
 [palette]
-grey = "#606060"
+light_grey = "#707070"
+dark_grey = "#303030"
 red = "#D04952"
 light_blue = "#4D79E8"
 blue = "#8D57DE"
-dark_blue = "#3E4A6F"
+dark_blue = "#475A93"
 purple = "#BE70E2"
 bg = "#101010"

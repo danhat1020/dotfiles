@@ -3,9 +3,16 @@ vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
+local opts = { silent = true, noremap = true }
+
 -- clipboard
-map({ "n", "v", "x" }, "<leader>y", "\"+y")
-map({ "n", "v", "x" }, "<leader>p", "\"+p")
+map({ "n", "v", "x" }, "<leader>y", [["+y]])
+map({ "n", "v", "x" }, "<leader>p", [["+p]])
+
+-- better pasting
+map("v", "p", [["_dP]], opts)
+map({ "n", "v" }, "<leader>d", [["_d]], opts)
+map({ "n", "v" }, "x", [["_x]], opts)
 
 -- center when moving around
 map("n", "n", "nzzzv")
@@ -18,11 +25,12 @@ map("n", "G", "Gzz")
 map("i", "<A-BS>", "<C-w>")
 map({ "n", "v", "x" }, ":", ";")
 map({ "n", "v", "x" }, ";", ":")
+map({ "n", "v", "x" }, "<C-c>", "<Esc>", opts)
 
 -- plugin functions
 map("n", "<leader>la", ":Lazy<CR>")
 map("n", "<leader>a", "<CMD>Alpha<CR>")
-map("n", "<leader>lf", function() vim.lsp.buf.format() end)
+map("n", "<leader>lf", vim.lsp.buf.format)
 
 -- navigation
 map("n", "-", "<CMD>Oil<CR>")
@@ -36,21 +44,26 @@ map("n", "<leader>cd", function()
     vim.cmd("lcd %:h")
   end
 end)
-map("n", "<leader>st", "<CMD>TodoTelescope<CR>", { silent = true, noremap = true })
+map("n", "<leader>st", "<CMD>TodoTelescope<CR>", opts)
 
 -- moving lines
-map("n", "<A-j>", ":m .+1<CR>==", { silent = true, noremap = true })
-map("n", "<A-k>", ":m .-2<CR>==", { silent = true, noremap = true })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
+map("n", "<A-j>", ":m .+1<CR>==", opts)
+map("n", "<A-k>", ":m .-2<CR>==", opts)
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+map("v", ">", ">gv", opts)
+map("v", "<", "<gv", opts)
 
 -- presentation
-map("v", "<C-j>", "<Esc>jV")
-map("v", "<C-k>", "<Esc>kV")
+map({ "n", "v" }, "<C-j>", "<Esc>jV")
+map({ "n", "v" }, "<C-k>", "<Esc>kV")
 
 -- other
-map("n", "<leader><leader>x", ":%lua<CR>")
-map("n", "<Space>", "<Nop>")
+map("n", "<leader>x", "<CMD>!chmod +x %<CR>", opts)                 -- making a file executable
+map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]]) -- renaming a variable
+map("n", "<Space>", "<Nop>")                                        -- unmapping space
+map("n", "Q", "<Nop>")                                              -- unmapping capital Q
 
 local function quickfix()
   vim.lsp.buf.code_action({
@@ -59,4 +72,4 @@ local function quickfix()
   })
 end
 
-vim.keymap.set('n', '<leader>qf', quickfix, { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>qf', quickfix, opts)
