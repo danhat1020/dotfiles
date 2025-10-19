@@ -12,7 +12,7 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:purple"
-  template = "󰉋 {{ .Path }}"
+  template = " 󰉋 {{ .Path }}"
 
     [blocks.segments.properties]
     style = "full"
@@ -21,8 +21,8 @@ newline = true
   type = "git"
   style = "plain"
   background = "transparent"
-  foreground = "p:dark_blue"
-  template = " → <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
+  foreground = "p:light_grey"
+  template = " on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
 
     [blocks.segments.properties]
     fetch_status = true
@@ -58,12 +58,9 @@ newline = true
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground_templates = [
-    "{{ if gt .Code 0 }}p:red{{ end }}",
-    "{{ if eq .Code 0 }}p:blue{{ end }}",
-  ]
+  foreground = "p:blue"
   background = "transparent"
-  template = "❱"
+  template = " ❱"
 
 [secondary_prompt]
 background = "transparent"
@@ -77,10 +74,9 @@ template = "❱ "
 
 [palette]
 light_grey = "#707070"
-dark_grey = "#303030"
+dark_grey = "#404040"
 red = "#D04952"
 light_blue = "#4D79E8"
 blue = "#8D57DE"
-dark_blue = "#475A93"
 purple = "#BE70E2"
 bg = "#101010"

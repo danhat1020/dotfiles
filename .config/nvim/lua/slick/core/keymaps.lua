@@ -25,7 +25,6 @@ map("n", "G", "Gzz")
 map("i", "<A-BS>", "<C-w>")
 map({ "n", "v", "x" }, ":", ";")
 map({ "n", "v", "x" }, ";", ":")
-map({ "n", "v", "x" }, "<C-c>", "<Esc>", opts)
 
 -- plugin functions
 map("n", "<leader>la", ":Lazy<CR>")
@@ -60,7 +59,7 @@ map({ "n", "v" }, "<C-j>", "<Esc>jV")
 map({ "n", "v" }, "<C-k>", "<Esc>kV")
 
 -- other
-map("n", "<leader>x", "<CMD>!chmod +x %<CR>", opts)                 -- making a file executable
+map("n", "<leader>mx", "<CMD>!chmod +x %<CR>", opts)                -- making a file executable
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]]) -- renaming a variable
 map("n", "<Space>", "<Nop>")                                        -- unmapping space
 map("n", "Q", "<Nop>")                                              -- unmapping capital Q

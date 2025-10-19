@@ -30,9 +30,9 @@ eval $(oh-my-posh init zsh --config "~/.config/oh-my-posh/zen.toml")
 alias ls="eza -a --show-symlinks --color=always --icons=always --sort=name --git-ignore --group-directories-first"
 alias tree="eza --all --tree --git-ignore"
 alias icat="kitten icat"
-alias vim="nvim"
 alias showcolor="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/e50a28ec54188d2413518788de6c6367ffcea4f7/print256colours.sh | zsh"
 alias rm="rm -rf"
+alias vim="nvim"
 
 alias gamma="pkill wl-gammarelay && hyprctl dispatch exec wl-gammarelay"
 

@@ -6,39 +6,34 @@ return {
     local lazy_status = require("lazy.status")
 
     local colors = {
-      normal = "#3048BF",
-      insert = "#9B30BF",
-      visual = "#BF3048",
-      replace = "#BF30B3",
-      command = "#BF6030",
-      terminal = "#30BF54",
-      fg = "#ffffff",
-      bg = "#000000",
+      highlight = "#404040",
+      fg = "#f0f0f0",
+      bg = "#080808",
     }
 
     local my_theme = {
       normal = {
-        a = { bg = colors.normal, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       insert = {
-        a = { bg = colors.insert, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       visual = {
-        a = { bg = colors.visual, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       command = {
-        a = { bg = colors.command, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       replace = {
-        a = { bg = colors.replace, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -53,22 +48,25 @@ return {
     local filename = {
       "filename",
       symbols = {
-        modified = " []",
-        readonly = " []",
+        modified = " [+]",
+        readonly = " ",
         unnamed = "",
       }
     }
 
-    local branch = { "branch", icon = { "", color = { fg = "#E97C74" } }, "|" }
+    local col = "#f06050"
+    local branch = { "branch", icon = { "", color = { fg = col } }, "|" }
 
     lualine.setup({
       icons_enabled = true,
       options = {
+        globalstatus = false,
         theme = my_theme,
-        component_separators = { left = " ⟶ ", right = " ⟵ " },
-        section_separators = { left = "", right = "" },
+        component_separators = " - ",
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {},
       },
-      sections = {
+      tabline = {
         lualine_a = { 'mode' },
         lualine_b = { branch, diff },
         lualine_c = { filename, "diagnostics" },
@@ -77,11 +75,14 @@ return {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff4030" },
+            color = { fg = "#ff2028" },
           },
           { "filetype" },
         },
-      }
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+      sections = {},
     })
   end,
 }

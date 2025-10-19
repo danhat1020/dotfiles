@@ -20,7 +20,7 @@ tooltip label {
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 1.0);
+  background: rgba(8, 8, 8, 1.0);
 }
 
 .modules-left {
@@ -75,7 +75,7 @@ window#waybar {
   padding: 0 6px;
   background: none;
   box-shadow: none;
-  transition: all 0.2s ease-out;
+  transition: all 0.12s ease-out;
 }
 
 #workspaces button label {
