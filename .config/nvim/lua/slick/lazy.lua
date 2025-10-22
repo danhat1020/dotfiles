@@ -16,15 +16,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  spec = {
     { import = "slick.plugins" },
     { import = "slick.plugins.lsp" },
   },
-  {
-    checker = {
-      enabled = true,
-      notify = false,
-    },
-    change_detection = {
-      notify = false,
-    },
-  })
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
