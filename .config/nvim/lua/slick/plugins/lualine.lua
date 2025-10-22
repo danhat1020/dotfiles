@@ -6,34 +6,38 @@ return {
     local lazy_status = require("lazy.status")
 
     local colors = {
-      highlight = "#404040",
+      n = "#626FFF",
+      i = "#62D5FF",
+      v = "#9C62FF",
+      c = "#FF6D62",
+      r = "#FF629E",
       fg = "#f0f0f0",
-      bg = "#080808",
+      bg = "#000000",
     }
 
     local my_theme = {
       normal = {
-        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.n, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       insert = {
-        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.i, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       visual = {
-        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.v, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       command = {
-        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.c, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
       replace = {
-        a = { bg = colors.highlight, fg = colors.fg, gui = "bold" },
+        a = { bg = colors.r, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.fg },
         c = { bg = colors.bg, fg = colors.fg },
       },
@@ -66,7 +70,7 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {},
       },
-      tabline = {
+      sections = {
         lualine_a = { 'mode' },
         lualine_b = { branch, diff },
         lualine_c = { filename, "diagnostics" },
@@ -82,7 +86,6 @@ return {
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
-      sections = {},
     })
   end,
 }

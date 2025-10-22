@@ -22,13 +22,12 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "G", "Gzz")
 
 -- keypress corrections
-map("i", "<A-BS>", "<C-w>")
 map({ "n", "v", "x" }, ":", ";")
 map({ "n", "v", "x" }, ";", ":")
 
 -- plugin functions
-map("n", "<leader>la", ":Lazy<CR>")
-map("n", "<leader>a", "<CMD>Alpha<CR>")
+map("n", "<leader>a", ":Alpha<CR>", opts)
+map("n", "<leader>la", ":Lazy<CR>", opts)
 map("n", "<leader>lf", vim.lsp.buf.format)
 
 -- navigation

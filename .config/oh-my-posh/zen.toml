@@ -12,7 +12,7 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:purple"
-  template = " 󰉋 {{ .Path }}"
+  template = "󰉋 {{ .Path }} "
 
     [blocks.segments.properties]
     style = "full"
@@ -22,33 +22,25 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:light_grey"
-  template = " on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }}"
+  template = "on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }} "
 
     [blocks.segments.properties]
     fetch_status = true
+  
+[[blocks]]
+type = "prompt"
+alignment = "right"
 
   [[blocks.segments]]
   type = "executiontime"
   style = "plain"
   background = "transparent"
   foreground = "p:dark_grey"
-  template = "  (in {{ .FormattedMs }})"
+  template = "in {{.FormattedMs}}    "
 
     [blocks.segments.properties]
     always_enabled = true
     style = "austin"
-
-[[blocks]]
-type = "prompt"
-alignment = "right"
-
-  [[blocks.segments]]
-  type = "time"
-  style = "plain"
-  foreground = "p:light_grey"
-
-    [blocks.segments.properties]
-    time_format = "@ <b>15:04</b>   "
 
 [[blocks]]
 type = "prompt"
@@ -58,25 +50,24 @@ newline = true
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground = "p:blue"
   background = "transparent"
-  template = " ❱"
+  foreground = "p:blue"
+  template = "λ"
 
 [secondary_prompt]
 background = "transparent"
 foreground = "p:blue"
-template = "❱ "
+template = "λ "
 
 [transient_prompt]
 background = "transparent"
 foreground = "p:blue"
-template = "❱ "
+template = "λ "
 
 [palette]
 light_grey = "#707070"
 dark_grey = "#404040"
 red = "#D04952"
 light_blue = "#4D79E8"
-blue = "#8D57DE"
+blue = "#916FE8"
 purple = "#BE70E2"
-bg = "#101010"
