@@ -7,8 +7,8 @@ return {
 
     local colors = {
       n = "#626FFF",
-      i = "#62D5FF",
-      v = "#9C62FF",
+      i = "#9C62FF",
+      v = "#62D5FF",
       c = "#FF6D62",
       r = "#FF629E",
       fg = "#f0f0f0",

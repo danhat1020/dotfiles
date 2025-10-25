@@ -24,6 +24,7 @@
   "clock": {
     "interval": 10,
     "format": "{:%H:%M}",
+    "timezone": "Etc/GMT-1",
     "tooltip": true,
     "tooltip-format": "{:%d-%m-%Y}",
   },

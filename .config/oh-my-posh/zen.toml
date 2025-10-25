@@ -36,7 +36,7 @@ alignment = "right"
   style = "plain"
   background = "transparent"
   foreground = "p:dark_grey"
-  template = "in {{.FormattedMs}}    "
+  template = "in {{.FormattedMs}}  "
 
     [blocks.segments.properties]
     always_enabled = true

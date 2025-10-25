@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 CASE_SENSITIVE="false"
@@ -28,6 +29,8 @@ alias icat="kitten icat"
 alias showcolor="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/e50a28ec54188d2413518788de6c6367ffcea4f7/print256colours.sh | zsh"
 alias rm="rm -rf"
 alias vim="nvim"
+alias bonsai="cbonsai --live --time=0.015 --infinite --wait=1.00 --leaf=\?,\&,\$ --color=2,130,77,3 --multiplier=8 --life=60"
+alias matrix="cmatrix -bk"
 
 alias gamma="pkill wl-gammarelay && hyprctl dispatch exec wl-gammarelay"
 
