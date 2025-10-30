@@ -22,7 +22,7 @@ newline = true
   style = "plain"
   background = "transparent"
   foreground = "p:light_grey"
-  template = "on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<p:red>*</>{{ end }} "
+  template = "on <p:light_blue>{{ .HEAD }}</>{{ if or (.Working.Changed) (.Staging.Changed) }}<b><p:red> </></b>{{ end }}"
 
     [blocks.segments.properties]
     fetch_status = true

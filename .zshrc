@@ -4,6 +4,9 @@ export PATH="$HOME/bin:$PATH"
 
 CASE_SENSITIVE="false"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 zstyle ':omz:update' frequency 7
@@ -35,6 +38,8 @@ alias matrix="cmatrix -bk"
 alias gamma="pkill wl-gammarelay && hyprctl dispatch exec wl-gammarelay"
 
 alias dn="dotnet"
+
+alias comp="gcc main.c -o main"
 
 alias cr="cargo run"
 alias cb="cargo build"
