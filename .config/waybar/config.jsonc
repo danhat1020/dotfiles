@@ -1,0 +1,72 @@
+{
+    "layer": "top",
+    "margin-top": 0,
+    "width": 1920,
+
+    "modules-left": [ "hyprland/workspaces" ],
+    "modules-center": [ "clock", "hyprland/window" ],
+    "modules-right": [ "network", "pulseaudio", "backlight", "battery" ],
+
+  // MODULES
+  // LEFT
+  "hyprland/workspaces": {
+      "format": "{name}",
+      "persistent-workspaces": {
+          "*": 10
+      }
+  },
+
+  // MIDDLE
+  "clock": {
+      "interval": 10,
+      "format": "{:%H:%M}",
+      "timezone": "Etc/GMT-1",
+      "tooltip": true,
+      "tooltip-format": "{:%d-%m-%Y}"
+  },
+
+  "hyprland/window": {
+      "format": "{class}",
+      "icon": false,
+      "tooltip": false,
+      "rewrite": {
+          "com.mitchellh.ghostty": "ghostty"
+      }
+  },
+
+  // RIGHT
+  // backlight, pulseaudio, network, battery
+  "backlight": {
+      "interval": 1,
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰃞", "󰃞", "󰃞", "󰃟", "󰃟", "󰃟", "󰃟", "󰃠", "󰃠", "󰃠", "󰃠"],
+      "tooltip": false,
+      "reverse-scrolling": true
+  },
+
+  "pulseaudio": {
+      "format": "󰕾 {volume}%",
+      "format-muted": "󰖁 MUTED",
+      "tooltip": false,
+      "reverse-scrolling": true
+  },
+
+  "network": {
+      "format": "󰖩 {essid}",
+      "format-disconnected": "󰖪 DISCONNECTED",
+      "tooltip": true,
+      "tooltip-format": "Signal strength: {signalStrength}%"
+  },
+
+  "battery": {
+      "bat": "BAT0",
+      "interval": 10,
+      "format": "{icon} {capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": false,
+      "states": {
+          "warning": 50,
+          "critical": 25
+      }
+  }
+}
