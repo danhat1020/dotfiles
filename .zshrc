@@ -28,6 +28,7 @@ alias ls='ls -A --color=always --group-directories-first'
 alias vim="nvim"
 alias gamma="pkill wl-gammarelay && hyprctl dispatch exec wl-gammarelay"
 alias hotspot='nmcli connection up "slick’s iPhone"'
+
 # skim setup
 if [[ -r /usr/share/skim/key-bindings.zsh ]]; then
   source /usr/share/skim/key-bindings.zsh

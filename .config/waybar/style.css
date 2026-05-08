@@ -38,9 +38,10 @@ window#waybar {
 #workspaces button {
   min-height: 0;
   color: rgba(255, 255, 255, 0.2);
-  padding: 0 3px;
+  padding: 0 4px;
   background: none;
   margin: 0;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #workspaces button label {
@@ -50,8 +51,9 @@ window#waybar {
 
 #workspaces button.active {
   margin: 0;
-  border-radius: 8px;
   color: rgba(240, 240, 240, 0.8);
+  border: 2px solid rgba(240, 240, 240, 0.16);
+  background: rgba(240, 240, 240, 0.03);
 }
 
 #workspaces button.active label {
@@ -59,7 +61,7 @@ window#waybar {
 }
 
 .modules-center {
-  margin: 0;
+  margin: 0px;
   padding: 8px 16px;
 }
 
