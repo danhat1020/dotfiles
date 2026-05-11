@@ -21,7 +21,7 @@ tooltip label {
 }
 
 window#waybar {
-  background: rgba(9, 9, 9, 0);
+  background: rgba(13, 13, 13, 0.8);
 }
 
 .modules-left {

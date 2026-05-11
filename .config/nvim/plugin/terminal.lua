@@ -1,7 +1,7 @@
 local M = {}
 
 local term = { buf = nil, win = nil, fullscreen = false }
-local SPLIT_HEIGHT = 15
+local SPLIT_HEIGHT = math.floor(vim.o.lines / 2)
 
 -- ==== HELPERS ====
 local function win_is_open(win) return win ~= nil and vim.api.nvim_win_is_valid(win) end

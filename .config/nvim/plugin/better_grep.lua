@@ -1,4 +1,5 @@
-vim.keymap.set('n', '<leader>g', ':silent grep!  | copen<Left><Left><Left><Left><Left><Left><Left><Left>')
+vim.cmd("command! -nargs=+ Grep execute 'silent grep <args>' | copen")
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
   callback = function()
