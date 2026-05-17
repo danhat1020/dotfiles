@@ -15,19 +15,19 @@ tooltip {
 
 tooltip label {
   color: rgba(240, 240, 240, 0.8);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 300;
   padding: 0 6px;
 }
 
 window#waybar {
-  background: rgba(13, 13, 13, 0.8);
+  background: rgba(13, 13, 13, 0.6);
 }
 
 .modules-left {
   margin: 0;
   margin-bottom: 1px;
-  padding: 8px;
+  padding: 4px;
 }
 
 #workspaces {
@@ -41,7 +41,6 @@ window#waybar {
   padding: 0 4px;
   background: none;
   margin: 0;
-  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 #workspaces button label {
@@ -52,17 +51,15 @@ window#waybar {
 #workspaces button.active {
   margin: 0;
   color: rgba(240, 240, 240, 0.8);
-  border: 2px solid rgba(240, 240, 240, 0.16);
-  background: rgba(240, 240, 240, 0.03);
 }
 
 #workspaces button.active label {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .modules-center {
   margin: 0px;
-  padding: 8px 16px;
+  padding: 4px 16px;
 }
 
 #clock {
@@ -84,8 +81,7 @@ window#waybar.empty #window {
 
 .modules-right {
   margin: 0;
-  padding: 8px 16px;
-  border-radius: 12px;
+  padding: 4px 16px;
 }
 
 .modules-right .module {

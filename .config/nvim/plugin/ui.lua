@@ -71,6 +71,7 @@ vim.ui.input = function(opts, on_confirm)
         local value = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1]
         if vim.api.nvim_win_is_valid(win) then vim.api.nvim_win_close(win, true) end
         vim.cmd('stopinsert')
+        vim.api.nvim_feedkeys('l', 'm', true);
         vim.schedule(function()
             on_confirm(submit and (value ~= '' and value or nil) or nil)
         end)

@@ -30,7 +30,7 @@
       "icon": false,
       "tooltip": false,
       "rewrite": {
-          "com.mitchellh.ghostty": "ghostty"
+          "org.gnome.Nautilus": "nautilus"
       }
   },
 

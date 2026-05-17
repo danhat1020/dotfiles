@@ -16,16 +16,16 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = 'kitty'
 local browser     = 'firefox'
-local fileManager = 'dolphin'
+local fileManager = 'nautilus'
 local menu        = 'fuzzel'
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 
-hl.on("hyprland.start", function ()
+hl.on('hyprland.start', function ()
     hl.exec_cmd('awww-daemon')
-    hl.exec_cmd('awww img ~/.config/hypr/backgrounds/statue.png')
+    hl.exec_cmd('awww img ~/.config/hypr/backgrounds/scenery.png')
     hl.exec_cmd('waybar')
     hl.exec_cmd('wl-gammarelay')
     hl.exec_cmd('blueman-applet &')
@@ -55,7 +55,7 @@ hl.config({
             inactive_border = "rgba(32,  32,  32,  1.0)",
         },
 
-        layout           = "dwindle",
+        layout           = "monocle",
         resize_on_border = false,
         allow_tearing    = false,
     },
@@ -82,22 +82,21 @@ hl.curve("stylish",     { type = "bezier", points = { {0.20, 1.00}, {0.15, 1.00}
 hl.animation({ leaf = "windows",       enabled = true, speed = 3.0, bezier = "stylish",     style = "popin 96%"    })
 hl.animation({ leaf = "windowsOut",    enabled = true, speed = 4.5, bezier = "smoothInOut", style = "popin 96%"    })
 hl.animation({ leaf = "border",        enabled = true, speed = 2.0, bezier = "subtle"                              })
-hl.animation({ leaf = "fade",          enabled = true, speed = 5.0, bezier = "smoothInOut"                         })
-hl.animation({ leaf = "layers",        enabled = true, speed = 5.0, bezier = "subtle"                              })
+hl.animation({ leaf = "fade",          enabled = true, speed = 3.0, bezier = "smoothInOut"                         })
+hl.animation({ leaf = "layers",        enabled = true, speed = 3.0, bezier = "subtle"                              })
 hl.animation({ leaf = "layersIn",      enabled = true, speed = 3.0, bezier = "subtle",      style = "popin 96%"    })
 hl.animation({ leaf = "layersOut",     enabled = true, speed = 3.0, bezier = "smoothInOut", style = "popin 96%"    })
-hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 4.0, bezier = "subtle"                              })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 4.0, bezier = "smoothInOut"                         })
-hl.animation({ leaf = "workspaces",    enabled = true, speed = 3.6, bezier = "stylish",     style = "slide"        })
+hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 3.0, bezier = "subtle"                              })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 3.0, bezier = "smoothInOut"                         })
+hl.animation({ leaf = "workspaces",    enabled = true, speed = 3.6, bezier = "stylish",     style = "fade"        })
 
-hl.config({ dwindle = { preserve_split = true, force_split = 2 } })
 hl.config({ master = { new_status = "master" } })
 
 ----------------
 ----  MISC  ----
 ----------------
 
-hl.config({ misc = { force_default_wallpaper = 0, disable_hyprland_logo = true } })
+hl.config({ misc   = { force_default_wallpaper = 0, disable_hyprland_logo = true } })
 hl.config({ render = { cm_sdr_eotf = 3 } })
 
 ---------------
@@ -122,6 +121,7 @@ hl.config({
 
         touchpad = {
             natural_scroll = true,
+            scroll_factor  = 0.5,
         },
     },
 })
@@ -143,16 +143,15 @@ hl.bind("SUPER + Space",     hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + E",         hl.dsp.exec_cmd(fileManager))
 hl.bind("SUPER + R",         hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind("SUPER + W",         hl.dsp.exec_cmd("~/.config/waybar/scripts/toggle.sh"))
+hl.bind("SUPER + G",         hl.dsp.exec_cmd("wl-gammarelay"))
 hl.bind("SUPER + F",         function()
     hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
     hl.dispatch(hl.dsp.window.center())
 end)
 
 -- Move focus with mainMod + vim keys
-hl.bind("SUPER + H", hl.dsp.focus({ direction = "left"  }))
-hl.bind("SUPER + J", hl.dsp.focus({ direction = "down"  }))
-hl.bind("SUPER + K", hl.dsp.focus({ direction = "up"    }))
-hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
+hl.bind("SUPER + H", hl.dsp.layout("cyclenext"))
+hl.bind("SUPER + L", hl.dsp.layout("cycleprev"))
 
 -- Resize focused window with mainMod + SHIFT + vim keys
 hl.bind("SUPER + SHIFT + H", hl.dsp.window.resize({ x = -30, y =   0 }))
@@ -164,7 +163,7 @@ hl.bind("SUPER + SHIFT + L", hl.dsp.window.resize({ x =  30, y =   0 }))
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind("SUPER + " .. key,         hl.dsp.focus({ workspace = i}))
+    hl.bind("SUPER + "         .. key, hl.dsp.focus({ workspace = i}))
     hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
