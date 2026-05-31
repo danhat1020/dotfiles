@@ -1,0 +1,62 @@
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+set packpath^=$XDG_CONFIG_HOME/vim,$XDG_DATA_HOME/vim
+" options
+filetype plugin on
+filetype plugin indent on
+set signcolumn=no
+set number
+set relativenumber
+set termguicolors
+set background=dark
+syntax on
+colorscheme habamax
+hi Normal guibg=NONE
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set splitright
+set splitbelow
+set nowrap
+set noswapfile
+set undofile
+set incsearch
+set nohlsearch
+set ignorecase
+set smartcase
+set clipboard=unnamedplus
+let g:netrw_banner=0
+" keymaps & autocomplete
+let g:mapleader=' '
+imap <C-c> <esc>
+vmap <C-c> <esc>
+xmap <C-c> <esc>
+nnoremap - <cmd>Ex<cr>
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+packadd hlyank
+let g:hlyank_duration = 135
+" fuzzy find
+set path=.,,*,**
+set wildmode=noselect
+autocmd CmdlineChanged : call s:TriggerWild()
+function! s:TriggerWild()
+  let cmd = getcmdline()
+  if cmd =~ '^fin' || cmd =~ 'help'
+    call wildtrigger()
+  endif
+endfunction
+function! MyFind(text, _)
+  return matchfuzzy(glob('**/*', 1, 1), a:text)
+endfunction
+set findfunc=MyFind
+" ripgrep
+set grepprg=rg\ --vimgrep\ --no-hidden\ --no-heading
+command! -nargs=+ Rg execute "silent grep! <args> | copen"
+autocmd FileType qf call s:QfSetup()
+function! s:QfSetup()
+  call feedkeys("\<cr>\<C-w>p", 'n')
+  nnoremap <buffer> j j<cr><C-w>p
+  nnoremap <buffer> k k<cr><C-w>p
+  nnoremap <buffer> <cr> <cr>:cclose<cr>
+endfunction

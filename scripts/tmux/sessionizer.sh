@@ -17,7 +17,7 @@ DIRS=(
 # looks at all directories specified using the DIRS array, allows user to fuzzy find
 selected=$(fd --type=dir --max-depth=1 --full-path --hidden --exclude ".git" --exclude ".cache" --exclude ".vim" . "${DIRS[@]}" |
     sed "s|^$HOME/||" |
-    fzf --color=bw --ansi --reverse --prompt="$ ")
+    fzf --color=bw --ansi --reverse --prompt="$ " --preview "")
 [[ $selected ]] && selected="$HOME/$selected"
 
 # if no directory is selected, exit

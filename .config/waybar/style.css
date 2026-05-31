@@ -1,33 +1,43 @@
+@define-color bg              #141414;
+@define-color tooltip-bg      #080808;
+@define-color tooltip-border  rgba(255, 255, 255, 0.3);
+@define-color main-text       #c0c0c0;
+@define-color button-text     #404040;
+@define-color error-text      #FF8282;
+@define-color warning-text    #FF9682;
+@define-color vol-muted       #606060;
+@define-color dark-text       #181818;
+
 * {
   border: none;
   border-radius: 0;
   margin: 0;
   padding: 0;
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font Propo";
   font-size: 16px;
 }
 
 tooltip {
-  background: rgba(8, 8, 8, 1);
+  background: @tooltip-bg;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid @tooltip-border;
 }
 
 tooltip label {
-  color: rgba(240, 240, 240, 0.8);
+  color: @main-text;
   font-size: 16px;
   font-weight: 300;
   padding: 0 6px;
 }
 
 window#waybar {
-  background: rgba(13, 13, 13, 0.6);
+  background: @bg;
 }
 
 .modules-left {
   margin: 0;
   margin-bottom: 1px;
-  padding: 4px;
+  padding: 0;
 }
 
 #workspaces {
@@ -37,38 +47,39 @@ window#waybar {
 
 #workspaces button {
   min-height: 0;
-  color: rgba(255, 255, 255, 0.2);
+  color: @main-text;
   padding: 0 4px;
-  background: none;
+  background: transparent;
   margin: 0;
 }
 
 #workspaces button label {
-  font-weight: 300;
+  font-weight: 500;
   padding: 0 3px;
 }
 
 #workspaces button.active {
   margin: 0;
-  color: rgba(240, 240, 240, 0.8);
+  color: @dark-text;
+  background: @main-text;
 }
 
 #workspaces button.active label {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .modules-center {
   margin: 0px;
-  padding: 4px 16px;
+  padding: 0px 16px;
 }
 
 #clock {
-  color: rgba(220, 220, 220, 1);
+  color: @main-text;
   font-weight: 700;
 }
 
 #window {
-  color: rgba(220, 220, 220, 0.8);
+  color: @main-text;
   margin: 0 0 0 24px;
   padding: 0;
   font-weight: 300;
@@ -81,7 +92,7 @@ window#waybar.empty #window {
 
 .modules-right {
   margin: 0;
-  padding: 4px 16px;
+  padding: 0;
 }
 
 .modules-right .module {
@@ -91,34 +102,38 @@ window#waybar.empty #window {
 }
 
 #network {
-  color: rgba(200, 200, 200, 1);
+  color: @main-text;
 }
 
 #network.disconnected {
-  color: rgba(255, 100, 100, 1);
+  color: @error-text;
 }
 
 #pulseaudio {
-  color: rgba(200, 200, 200, 1);
+  color: @main-text;
 }
 
 #pulseaudio.muted {
-  color: rgba(200, 200, 200, 0.4);
+  color: @vol-muted;
 }
 
 #backlight {
-  color: rgba(200, 200, 200, 1);
+  color: @main-text;
 }
 
 #battery {
-  padding-right: 2px;
-  color: rgba(200, 200, 200, 1);
+  color: @main-text;
+  background: transparent;
 }
 
 #battery.warning {
-  color: rgba(255, 150, 100, 1);
+  color: @warning-text;
 }
 
 #battery.critical {
-  color: rgba(255, 100, 100, 1);
+  color: @error-text;
+}
+
+#memory {
+  padding-right: 8px;
 }

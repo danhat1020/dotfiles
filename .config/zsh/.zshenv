@@ -15,3 +15,6 @@ export PATH="/usr/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+##### vim #####
+export VIMINIT='if has("nvim") | source $XDG_CONFIG_HOME/nvim/init.lua | else | let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC | endif'

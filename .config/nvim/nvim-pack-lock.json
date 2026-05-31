@@ -1,8 +1,8 @@
 {
   "plugins": {
-    "silence.nvim": {
-      "rev": "42dfa6dd0877856d1779d222f13c1cdc0dc86edf",
-      "src": "https://github.com/danhat1020/silence.nvim"
+    "silence": {
+      "rev": "5a54158c34a39ed8fb6954f4c2214c6b1d7d2df5",
+      "src": "file:///home/slick/dev/neovim_plugins/silence"
     }
   }
 }
