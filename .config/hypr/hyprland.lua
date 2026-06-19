@@ -15,7 +15,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = 'kitty'
-local browser     = 'firefox'
+local browser     = 'zen-browser'
 local fileManager = 'nautilus'
 local menu        = 'fuzzel'
 
@@ -25,7 +25,7 @@ local menu        = 'fuzzel'
 
 hl.on('hyprland.start', function()
   hl.exec_cmd('awww-daemon')
-  hl.exec_cmd('awww img ~/.config/hypr/backgrounds/scenery.png')
+  hl.exec_cmd('awww img ~/.config/hypr/backgrounds/statue.png')
   hl.exec_cmd('waybar')
   hl.exec_cmd('wl-gammarelay')
   hl.exec_cmd('blueman-applet &')
@@ -51,7 +51,7 @@ hl.config({
     gaps_out         = 0,
 
     col              = {
-      active_border   = "rgba(128, 128, 128, 1.0)",
+      active_border   = "rgba(160, 160, 160, 1.0)",
       inactive_border = "rgba(32,  32,  32,  1.0)",
     },
 
@@ -79,7 +79,7 @@ hl.curve("smoothInOut", { type = "bezier", points = { { 0.40, 0.00 }, { 0.20, 1.
 hl.curve("subtle", { type = "bezier", points = { { 0.22, 0.90 }, { 0.30, 1.00 } } })
 hl.curve("stylish", { type = "bezier", points = { { 0.20, 1.00 }, { 0.15, 1.00 } } })
 
-hl.animation({ leaf = "windows", enabled = true, speed = 3.0, bezier = "stylish", style = "popin 96%" })
+hl.animation({ leaf = "windows", enabled = true, speed = 3.0, bezier = "stylish", style = "popin 80%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 4.5, bezier = "smoothInOut", style = "popin 96%" })
 hl.animation({ leaf = "border", enabled = true, speed = 2.0, bezier = "subtle" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3.0, bezier = "smoothInOut" })
@@ -88,7 +88,7 @@ hl.animation({ leaf = "layersIn", enabled = true, speed = 3.0, bezier = "subtle"
 hl.animation({ leaf = "layersOut", enabled = true, speed = 3.0, bezier = "smoothInOut", style = "popin 96%" })
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 3.0, bezier = "subtle" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 3.0, bezier = "smoothInOut" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3.6, bezier = "stylish", style = "fade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3.6, bezier = "stylish", style = "slidefade 16%" })
 
 hl.config({ master = { new_status = "master" } })
 
@@ -105,21 +105,20 @@ hl.config({ render = { cm_sdr_eotf = 3 } })
 
 hl.config({
   input = {
-    kb_layout      = "us",
-    kb_variant     = "",
-    kb_model       = "",
-    kb_options     = "ctrl:nocaps",
-    kb_rules       = "",
+    kb_layout     = "us",
+    kb_variant    = "",
+    kb_model      = "",
+    kb_options    = "ctrl:nocaps",
+    kb_rules      = "",
 
-    sensitivity    = 0.2,
-    accel_profile  = "flat",
-    force_no_accel = true,
-    follow_mouse   = 0,
+    sensitivity   = 0.5,
+    accel_profile = "flat",
+    follow_mouse  = 0,
 
-    repeat_delay   = 200,
-    repeat_rate    = 40,
+    repeat_delay  = 200,
+    repeat_rate   = 40,
 
-    touchpad       = {
+    touchpad      = {
       natural_scroll = true,
       scroll_factor  = 0.5,
     },
@@ -201,6 +200,46 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+local function toggle_cursor_trail()
+  local config = os.getenv("HOME") .. "/.config/kitty/kitty.conf"
+  local f = io.open(config, "r")
+  if not f then return end
+
+  local lines = {}
+  local current = "0"
+  local found = false
+
+  for line in f:lines() do
+    if line:match("^cursor_trail%s+") then
+      current = line:match("^cursor_trail%s+(%S+)") or "0"
+      found = true
+    end
+    table.insert(lines, line)
+  end
+  f:close()
+
+  local new_value = (current == "0") and "1" or "0"
+
+  f = io.open(config, "w")
+  for _, line in ipairs(lines) do
+    if line:match("^cursor_trail%s+") then
+      f:write("cursor_trail " .. new_value .. "\n")
+    else
+      f:write(line .. "\n")
+    end
+  end
+  if not found then
+    f:write("cursor_trail " .. new_value .. "\n")
+  end
+  f:close()
+
+  os.execute("killall -SIGUSR1 kitty")
+end
+
+hl.bind("SUPER + A", function()
+  toggle_cursor_trail()
+end)
 
 -- Window rules
 hl.window_rule({

@@ -16,8 +16,6 @@ setopt NOBEEP
 setopt NUMERIC_GLOB_SORT # sort file10 after file9, not after file1
 
 ##### COMPLETION #####
-autoload -Uz compinit                                  # load completion unit
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"            # initialize completion with cached metadata file
 zstyle ':completion:*' menu select                     # enable interactive completion menu selection
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # make completion case-insensitive
 

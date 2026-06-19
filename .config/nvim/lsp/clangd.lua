@@ -66,7 +66,7 @@ end
 ---@type vim.lsp.Config
 return {
   cmd = { "clangd" },
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+  filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda" },
   root_markers = {
     ".clangd",
     ".clang-tidy",

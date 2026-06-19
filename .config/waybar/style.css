@@ -1,4 +1,4 @@
-@define-color bg              #141414;
+@define-color bg              rgba(13, 13, 13, 0.95);
 @define-color tooltip-bg      #080808;
 @define-color tooltip-border  rgba(255, 255, 255, 0.3);
 @define-color main-text       #c0c0c0;
@@ -13,20 +13,19 @@
   border-radius: 0;
   margin: 0;
   padding: 0;
-  font-family: "JetBrainsMono Nerd Font Propo";
-  font-size: 16px;
+  font-family: "MesloLGS Nerd Font";
+  font-size: 15px;
 }
 
 tooltip {
   background: @tooltip-bg;
-  border-radius: 10px;
   border: 1px solid @tooltip-border;
 }
 
 tooltip label {
   color: @main-text;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   padding: 0 6px;
 }
 
@@ -35,9 +34,9 @@ window#waybar {
 }
 
 .modules-left {
-  margin: 0;
-  margin-bottom: 1px;
-  padding: 0;
+  margin: 0 4px;
+  margin-bottom: 0;
+  padding: 2px 0;
 }
 
 #workspaces {
@@ -47,21 +46,20 @@ window#waybar {
 
 #workspaces button {
   min-height: 0;
-  color: @main-text;
+  color: @button-text;
   padding: 0 4px;
-  background: transparent;
+  background: none;
   margin: 0;
 }
 
 #workspaces button label {
-  font-weight: 500;
+  font-weight: 300;
   padding: 0 3px;
 }
 
 #workspaces button.active {
   margin: 0;
-  color: @dark-text;
-  background: @main-text;
+  color: @main-text;
 }
 
 #workspaces button.active label {
@@ -75,14 +73,15 @@ window#waybar {
 
 #clock {
   color: @main-text;
-  font-weight: 700;
+  font-weight: 500;
+  padding: 2px 0;
 }
 
 #window {
   color: @main-text;
   margin: 0 0 0 24px;
-  padding: 0;
   font-weight: 300;
+  padding: 2px 0;
 }
 
 window#waybar.empty #window {
@@ -98,7 +97,10 @@ window#waybar.empty #window {
 .modules-right .module {
   padding: 0;
   padding-right: 24px;
-  font-weight: 500;
+  font-weight: 400;
+  color: @main-text;
+  padding-top: 3px;
+  padding-bottom: 1px;
 }
 
 #network {

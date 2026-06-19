@@ -1,0 +1,2 @@
+leak:InitWindow
+leak:SDL_EGL_LoadLibrary

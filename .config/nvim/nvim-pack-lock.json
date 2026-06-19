@@ -1,8 +1,0 @@
-{
-  "plugins": {
-    "silence": {
-      "rev": "5a54158c34a39ed8fb6954f4c2214c6b1d7d2df5",
-      "src": "file:///home/slick/dev/neovim_plugins/silence"
-    }
-  }
-}

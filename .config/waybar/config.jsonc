@@ -21,7 +21,7 @@
   "clock": {
     "interval": 10,
     "format": "{:%H:%M}",
-    "timezone": "Etc/GMT-1",
+    "timezone": "Europe/London",
     "tooltip": true,
     "tooltip-format": "{:%d-%m-%Y}"
   },
@@ -38,14 +38,14 @@
   // RIGHT
   // CPU
   "cpu": {
-    "interval": 10,
-    "format": "|   {}%",
+    "interval": 20,
+    "format": "|   {usage}%",
     "max-length": 20
   },
   "memory": {
-    "interval": 30,
+    "interval": 20,
     "format": " {percentage}%",
-    "tooltip-format": "{used:0.1f}G/{total:0.1f}G used"
+    "tooltip-format": "{used:0.2f}G/{total:0.2f}G used"
   },
 
   // RIGHT

@@ -5,6 +5,7 @@ set packpath^=$XDG_CONFIG_HOME/vim,$XDG_DATA_HOME/vim
 filetype plugin on
 filetype plugin indent on
 set signcolumn=no
+set cursorline
 set number
 set relativenumber
 set termguicolors
@@ -12,6 +13,7 @@ set background=dark
 syntax on
 colorscheme habamax
 hi Normal guibg=NONE
+hi CursorLine guibg=#181818
 set tabstop=2
 set shiftwidth=2
 set expandtab
