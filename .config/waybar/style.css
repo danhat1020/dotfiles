@@ -1,20 +1,21 @@
-@define-color bg              rgba(13, 13, 13, 0.95);
+@define-color bg              #141414;
 @define-color tooltip-bg      #080808;
 @define-color tooltip-border  rgba(255, 255, 255, 0.3);
-@define-color main-text       #c0c0c0;
-@define-color button-text     #404040;
+@define-color main-text       #d0d0d0;
+@define-color button-text     #505050;
 @define-color error-text      #FF8282;
 @define-color warning-text    #FF9682;
 @define-color vol-muted       #606060;
 @define-color dark-text       #181818;
+@define-color separator       #808080;
 
 * {
   border: none;
   border-radius: 0;
   margin: 0;
   padding: 0;
-  font-family: "MesloLGS Nerd Font";
-  font-size: 15px;
+  font-family: "DroidSansM Nerd Font";
+  font-size: 16px;
 }
 
 tooltip {
@@ -34,9 +35,9 @@ window#waybar {
 }
 
 .modules-left {
-  margin: 0 4px;
+  margin: 2px 5px;
   margin-bottom: 0;
-  padding: 2px 0;
+  padding: 0;
 }
 
 #workspaces {
@@ -47,7 +48,7 @@ window#waybar {
 #workspaces button {
   min-height: 0;
   color: @button-text;
-  padding: 0 4px;
+  padding: 0 3px;
   background: none;
   margin: 0;
 }
@@ -63,29 +64,30 @@ window#waybar {
 }
 
 #workspaces button.active label {
-  font-weight: 500;
+  font-weight: 700;
+}
+
+#window {
+  color: @separator;
+  margin: 0 0 0 20px;
+  font-weight: 300;
+  padding: 0;
+}
+
+window#waybar.empty #window {
+  color: @bg;
+  margin: 0;
+  padding: 0;
 }
 
 .modules-center {
   margin: 0px;
-  padding: 0px 16px;
+  padding: 2px 16px;
 }
 
 #clock {
   color: @main-text;
-  font-weight: 500;
-  padding: 2px 0;
-}
-
-#window {
-  color: @main-text;
-  margin: 0 0 0 24px;
-  font-weight: 300;
-  padding: 2px 0;
-}
-
-window#waybar.empty #window {
-  margin: 0;
+  font-weight: 700;
   padding: 0;
 }
 
@@ -95,12 +97,10 @@ window#waybar.empty #window {
 }
 
 .modules-right .module {
-  padding: 0;
+  padding: 2px 0;
   padding-right: 24px;
   font-weight: 400;
   color: @main-text;
-  padding-top: 3px;
-  padding-bottom: 1px;
 }
 
 #network {
@@ -126,6 +126,7 @@ window#waybar.empty #window {
 #battery {
   color: @main-text;
   background: transparent;
+  padding-right: 18px;
 }
 
 #battery.warning {
@@ -134,6 +135,13 @@ window#waybar.empty #window {
 
 #battery.critical {
   color: @error-text;
+}
+
+#custom-separator {
+  color: @separator;
+  padding: 0;
+  margin: 0;
+  padding-right: 18px;
 }
 
 #memory {

@@ -37,7 +37,8 @@ RESET='\[\e[0m\]'
 DARK_GREY='\[\e[0;90m\]'
 GREY='\[\e[0;37m\]'
 WHITE='\[\e[0;97m\]'
-export PS1="${DARK_GREY}\u@\h:${GREY}\w ${WHITE}$ ${RESET}"
+export PS1="${DARK_GREY}\u@\h:${GREY}\w ${WHITE}\$ ${RESET}"
+# export PS1="${GREY}[\u@\h \w]\$ ${RESET}"
 export PS2="${DARK_GREY}> ${RESET}"
 PROMPT_COMMAND='history -a'
 

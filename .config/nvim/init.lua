@@ -23,7 +23,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.g.netrw_banner = 0
 vim.o.wrap = false
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.clipboard = 'unnamedplus'
 -- KEYMAPS & AUTOCMDS
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, '<C-c>', '<esc>')
 vim.keymap.set('n', '-', vim.cmd.Ex)
